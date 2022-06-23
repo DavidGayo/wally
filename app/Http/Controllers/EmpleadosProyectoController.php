@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\empleados_proyecto;
+use App\Models\EmpleadosProyecto;
 use Illuminate\Http\Request;
 
 class EmpleadosProyectoController extends Controller
@@ -41,10 +41,10 @@ class EmpleadosProyectoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\empleados_proyecto  $empleados_proyecto
+     * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(empleados_proyecto $empleados_proyecto)
+    public function show(EmpleadosProyecto $empleadosProyecto)
     {
         //
     }
@@ -52,10 +52,10 @@ class EmpleadosProyectoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\empleados_proyecto  $empleados_proyecto
+     * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(empleados_proyecto $empleados_proyecto)
+    public function edit(EmpleadosProyecto $empleadosProyecto)
     {
         //
     }
@@ -64,10 +64,10 @@ class EmpleadosProyectoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\empleados_proyecto  $empleados_proyecto
+     * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, empleados_proyecto $empleados_proyecto)
+    public function update(Request $request, EmpleadosProyecto $empleadosProyecto)
     {
         //
     }
@@ -75,10 +75,10 @@ class EmpleadosProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\empleados_proyecto  $empleados_proyecto
+     * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(empleados_proyecto $empleados_proyecto)
+    public function destroy(EmpleadosProyecto $empleadosProyecto)
     {
         //
     }

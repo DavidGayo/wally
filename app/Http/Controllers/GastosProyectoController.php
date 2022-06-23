@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gastos_proyecto;
+use App\Models\GastosProyecto;
 use Illuminate\Http\Request;
 
 class GastosProyectoController extends Controller
@@ -41,10 +41,10 @@ class GastosProyectoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\gastos_proyecto  $gastos_proyecto
+     * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(gastos_proyecto $gastos_proyecto)
+    public function show(GastosProyecto $gastosProyecto)
     {
         //
     }
@@ -52,10 +52,10 @@ class GastosProyectoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\gastos_proyecto  $gastos_proyecto
+     * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(gastos_proyecto $gastos_proyecto)
+    public function edit(GastosProyecto $gastosProyecto)
     {
         //
     }
@@ -64,10 +64,10 @@ class GastosProyectoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\gastos_proyecto  $gastos_proyecto
+     * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, gastos_proyecto $gastos_proyecto)
+    public function update(Request $request, GastosProyecto $gastosProyecto)
     {
         //
     }
@@ -75,10 +75,10 @@ class GastosProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\gastos_proyecto  $gastos_proyecto
+     * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(gastos_proyecto $gastos_proyecto)
+    public function destroy(GastosProyecto $gastosProyecto)
     {
         //
     }

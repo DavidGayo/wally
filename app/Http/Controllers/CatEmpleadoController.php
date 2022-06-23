@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cat_empleado;
+use App\Models\CatEmpleado;
 use Illuminate\Http\Request;
 
 class CatEmpleadoController extends Controller
@@ -41,10 +41,10 @@ class CatEmpleadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cat_empleado  $cat_empleado
+     * @param  \App\Models\catEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function show(cat_empleado $cat_empleado)
+    public function show(CatEmpleado $catEmpleado)
     {
         //
     }
@@ -52,10 +52,10 @@ class CatEmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cat_empleado  $cat_empleado
+     * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(cat_empleado $cat_empleado)
+    public function edit(CatEmpleado $catEmpleado)
     {
         //
     }
@@ -64,10 +64,10 @@ class CatEmpleadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cat_empleado  $cat_empleado
+     * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cat_empleado $cat_empleado)
+    public function update(Request $request, CatEmpleado $catEmpleado)
     {
         //
     }
@@ -75,10 +75,10 @@ class CatEmpleadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cat_empleado  $cat_empleado
+     * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cat_empleado $cat_empleado)
+    public function destroy(CatEmpleado $catEmpleado)
     {
         //
     }

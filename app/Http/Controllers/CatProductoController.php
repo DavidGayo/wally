@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cat_producto;
+use App\Models\CatProducto;
 use Illuminate\Http\Request;
 
 class CatProductoController extends Controller
@@ -41,10 +41,10 @@ class CatProductoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cat_producto  $cat_producto
+     * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function show(cat_producto $cat_producto)
+    public function show(CatProducto $catProducto)
     {
         //
     }
@@ -52,10 +52,10 @@ class CatProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cat_producto  $cat_producto
+     * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function edit(cat_producto $cat_producto)
+    public function edit(CatProducto $catProducto)
     {
         //
     }
@@ -64,10 +64,10 @@ class CatProductoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cat_producto  $cat_producto
+     * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cat_producto $cat_producto)
+    public function update(Request $request, CatProducto $catProducto)
     {
         //
     }
@@ -75,10 +75,10 @@ class CatProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cat_producto  $cat_producto
+     * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cat_producto $cat_producto)
+    public function destroy(CatProducto $catProducto)
     {
         //
     }

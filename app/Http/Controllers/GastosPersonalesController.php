@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cat_rol;
+use App\Models\GastosPersonales;
 use Illuminate\Http\Request;
 
-class CatRolController extends Controller
+class GastosPersonalesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CatRolController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cat_rol  $cat_rol
+     * @param  \App\Models\GastosPersonales  $gastosPersonales
      * @return \Illuminate\Http\Response
      */
-    public function show(cat_rol $cat_rol)
+    public function show(GastosPersonales $gastosPersonales)
     {
         //
     }
@@ -52,10 +52,10 @@ class CatRolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cat_rol  $cat_rol
+     * @param  \App\Models\GastosPersonales  $gastosPersonales
      * @return \Illuminate\Http\Response
      */
-    public function edit(cat_rol $cat_rol)
+    public function edit(GastosPersonales $gastosPersonales)
     {
         //
     }
@@ -64,10 +64,10 @@ class CatRolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cat_rol  $cat_rol
+     * @param  \App\Models\GastosPersonales  $gastosPersonales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cat_rol $cat_rol)
+    public function update(Request $request, GastosPersonales $gastosPersonales)
     {
         //
     }
@@ -75,10 +75,10 @@ class CatRolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cat_rol  $cat_rol
+     * @param  \App\Models\GastosPersonales  $gastosPersonales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cat_rol $cat_rol)
+    public function destroy(GastosPersonales $gastosPersonales)
     {
         //
     }

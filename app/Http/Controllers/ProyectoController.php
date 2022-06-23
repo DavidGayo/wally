@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\proyecto;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
@@ -41,10 +41,10 @@ class ProyectoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\proyecto  $proyecto
+     * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(proyecto $proyecto)
+    public function show(Proyecto $proyecto)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProyectoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\proyecto  $proyecto
+     * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(proyecto $proyecto)
+    public function edit(Proyecto $proyecto)
     {
         //
     }
@@ -64,7 +64,7 @@ class ProyectoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\proyecto  $proyecto
+     * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, proyecto $proyecto)
@@ -75,10 +75,10 @@ class ProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\proyecto  $proyecto
+     * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(proyecto $proyecto)
+    public function destroy(Proyecto $proyecto)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cat_estatu;
+use App\Models\CatEstatu;
 use Illuminate\Http\Request;
 
 class CatEstatuController extends Controller
@@ -14,7 +14,8 @@ class CatEstatuController extends Controller
      */
     public function index()
     {
-        return "hola";
+        $estatus = CatEstatu::all();
+        return $estatus;
     }
 
     /**
@@ -41,10 +42,10 @@ class CatEstatuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cat_estatu  $cat_estatu
+     * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function show(cat_estatu $cat_estatu)
+    public function show(CatEstatu $catEstatu)
     {
         //
     }
@@ -52,10 +53,10 @@ class CatEstatuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cat_estatu  $cat_estatu
+     * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function edit(cat_estatu $cat_estatu)
+    public function edit(CatEstatu $catEstatu)
     {
         //
     }
@@ -64,10 +65,10 @@ class CatEstatuController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cat_estatu  $cat_estatu
+     * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cat_estatu $cat_estatu)
+    public function update(Request $request, CatEstatu $catEstatu)
     {
         //
     }
@@ -75,21 +76,12 @@ class CatEstatuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cat_estatu  $cat_estatu
+     * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cat_estatu $cat_estatu)
+    public function destroy(CatEstatu $catEstatu)
     {
         //
     }
 
-
-    /**
-     * Display saludo.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function saludo(){
-
-    }
 }

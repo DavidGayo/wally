@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatRolsTable extends Migration
+class CreateGastosPersonalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateCatRolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_rols', function (Blueprint $table) {
+        Schema::create('gastos_personales', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_rol',30);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateCatRolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_rols');
+        Schema::dropIfExists('gastos_personales');
     }
 }
