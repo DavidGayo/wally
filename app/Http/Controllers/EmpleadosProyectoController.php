@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatEmpleado;
+use App\Models\CatEmpleo;
 use App\Models\EmpleadosProyecto;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class EmpleadosProyectoController extends Controller
@@ -14,7 +17,9 @@ class EmpleadosProyectoController extends Controller
      */
     public function index()
     {
-        //
+        $empleadosProyectos = EmpleadosProyecto::all();
+
+        return view('empro.index', ['empleadosProyecto' => $empleadosProyectos]);
     }
 
     /**
@@ -24,7 +29,11 @@ class EmpleadosProyectoController extends Controller
      */
     public function create()
     {
-        //
+        $empleados = CatEmpleado::all();
+        $proyectos = Proyecto::all();
+        $empleos = CatEmpleo::all();
+
+        return view('empro.create', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos]);
     }
 
     /**
@@ -35,7 +44,21 @@ class EmpleadosProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empPro = new EmpleadosProyecto;
+        $empPro->empleado_id = $request->input('empleado_id');
+        $empPro->proyecto_id = $request->input('proyecto_id');
+        $empPro->empleo_id = $request->input('empleo_id');
+        $empPro->precio_hora = $request->input('precio_hora');
+        $empPro->horas = $request->input('horas');
+        $empPro->dias = $request->input('dias');
+        $empPro->total = $request->input('total');
+        $empPro->usuario_creo_id = auth()->user()->id;
+        $empPro->save();
+
+        return redirect()->route('empro.index')->with([
+            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
+        ]);
+
     }
 
     /**
@@ -44,9 +67,11 @@ class EmpleadosProyectoController extends Controller
      * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(EmpleadosProyecto $empleadosProyecto)
+    public function show(EmpleadosProyecto $empleadosProyecto, $id)
     {
-        //
+        $empPro = EmpleadosProyecto::find($id);
+
+        return view('empro.show', ['empPro' => $empPro]);
     }
 
     /**
@@ -55,9 +80,14 @@ class EmpleadosProyectoController extends Controller
      * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(EmpleadosProyecto $empleadosProyecto)
+    public function edit(EmpleadosProyecto $empleadosProyecto, $id)
     {
-        //
+        $empleados = CatEmpleado::all();
+        $proyectos = Proyecto::all();
+        $empleos = CatEmpleo::all();
+        $empPro = $empleadosProyectos::find($id);
+
+        return view('empro.create', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos, 'empPro' => $empPro]);
     }
 
     /**
@@ -69,7 +99,20 @@ class EmpleadosProyectoController extends Controller
      */
     public function update(Request $request, EmpleadosProyecto $empleadosProyecto)
     {
-        //
+        $empPro = $empleadosProyectos::find($id);
+        $empPro->empleado_id = $request->input('empleado_id');
+        $empPro->proyecto_id = $request->input('proyecto_id');
+        $empPro->empleo_id = $request->input('empleo_id');
+        $empPro->precio_hora = $request->input('precio_hora');
+        $empPro->horas = $request->input('horas');
+        $empPro->dias = $request->input('dias');
+        $empPro->total = $request->input('total');
+        $empPro->usuario_creo_id = auth()->user()->id;
+        $empPro->update();
+
+        return redirect()->route('empro.index')->with([
+            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
+        ]);
     }
 
     /**
@@ -78,8 +121,13 @@ class EmpleadosProyectoController extends Controller
      * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EmpleadosProyecto $empleadosProyecto)
+    public function destroy(EmpleadosProyecto $empleadosProyecto, $id)
     {
-        //
+        $empPro = $empleadosProyectos::find($id);
+        $empPro->destroy();
+
+        return redirect()->route('empro.index')->with([
+            'mensaje_danger' => 'El empleado a sido eliminado correctamente!!'
+        ]);
     }
 }

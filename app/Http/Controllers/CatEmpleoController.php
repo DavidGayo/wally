@@ -14,7 +14,9 @@ class CatEmpleoController extends Controller
      */
     public function index()
     {
-        //
+        $empleos = CatEmpleo::all();
+
+        return view('empleo.index', ['empleos' => $empleos ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CatEmpleoController extends Controller
      */
     public function create()
     {
-        //
+        return view('empleo.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class CatEmpleoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleo = new CatEmpleo;
+        $empleo->nombre_empleo = $request->input('nombre_empleo');
+        $empleo->descripcion_empleo = $request->input('descripcion_empleo');
+        $empleo->usuario_creo_id = auth()->user()->id;
+        $empleo->save();
+
+        return redirect()->route('empleo.index')->with([
+            'mensaje_success' => 'El empleo a sido creado correctamente!!'
+        ]);
     }
 
     /**
@@ -44,9 +54,11 @@ class CatEmpleoController extends Controller
      * @param  \App\Models\CatEmpleo  $catEmpleo
      * @return \Illuminate\Http\Response
      */
-    public function show(CatEmpleo $catEmpleo)
+    public function show(CatEmpleo $catEmpleo, $id)
     {
-        //
+        $empleo = $catEmpleo::find($id);
+
+        return view('empleo.show', ['empleo' => $empleo]);
     }
 
     /**
@@ -55,9 +67,11 @@ class CatEmpleoController extends Controller
      * @param  \App\Models\CatEmpleo  $catEmpleo
      * @return \Illuminate\Http\Response
      */
-    public function edit(CatEmpleo $catEmpleo)
+    public function edit(CatEmpleo $catEmpleo, $id)
     {
-        //
+        $empleo = $catEmpleo::find($id);
+
+        return view('empleo.edit', ['empleo' => $empleo]);
     }
 
     /**
@@ -67,9 +81,17 @@ class CatEmpleoController extends Controller
      * @param  \App\Models\CatEmpleo  $catEmpleo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatEmpleo $catEmpleo)
+    public function update(Request $request, CatEmpleo $catEmpleo, $id)
     {
-        //
+        $empleo = CatEmpleo::find($id); 
+        $empleo->nombre_empleo = $request->input('nombre_empleo');
+        $empleo->descripcion_empleo = $request->input('descripcion_empleo');
+        $empleo->usuario_creo_id =  auth()->user()->id;
+        $empleo->update();
+
+        return redirect()->route('empleo.index')->with([
+            'mensaje_info' => 'El empleo a sido actualizado correctamente!!'
+        ]);
     }
 
     /**
@@ -78,8 +100,13 @@ class CatEmpleoController extends Controller
      * @param  \App\Models\CatEmpleo  $catEmpleo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CatEmpleo $catEmpleo)
+    public function destroy(CatEmpleo $catEmpleo, $id)
     {
-        //
+        $empleo = CatEmpleo::find($id);
+        $empleo->destroy();
+
+        return redirect()->route('empleo.index')->with([
+            'mensaje_danger' => 'El empleo a sido eliminado correctamente!!'
+        ]);
     }
 }

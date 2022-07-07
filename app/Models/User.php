@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol',
     ];
 
     /**
@@ -43,30 +44,30 @@ class User extends Authenticatable
     ];
 
     public function estatus(){
-        return $this->belongsTo('App/Models/cat_estatu');
+        return $this->belongsTo('App\Models\CatEstatu');
     }
 
     public function empleado(){
-        return $this->hasMany('App/Models/cat_empleado');
+        return $this->hasMany('App\Models\CatEmpleado');
     }
 
     public function empleo(){
-        return $this->hasMany('App/Models/cat_empleo');
+        return $this->hasMany('App\Models\CatEmpleo');
     }
 
     public function producto(){
-        return $this->hasMany('App/Models/cat_producto');
+        return $this->hasMany('App\Models\CatProducto');
     }
 
     public function empleados_proyecto(){
-        return $this->hasMany('App/Models/empleados_proyecto');
+        return $this->hasMany('App\Models\EmpleadosProyecto');
     }
 
     public function gastos_proyecto(){
-        return $this->hasMany('App/Models/gastos_proyecto');
+        return $this->hasMany('App\Models\GastosProyecto');
     }
 
     public function proyecto(){
-        return $this->hasMany('App/Models/proyecto');
+        return $this->hasMany('App\Models\Proyecto');
     }
 }

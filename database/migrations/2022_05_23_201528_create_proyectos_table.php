@@ -18,8 +18,8 @@ class CreateProyectosTable extends Migration
             $table->string('nombre_proyecto',100);
             $table->text('descripcion_proyecto');
             $table->double('costo',8,2)->nullable();
-            $table->timestamp('fecha_inicio')->nullable();
-            $table->timestamp('fecha_fin')->nullable();
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_fin')->nullable();
             $table->unsignedBigInteger('estatus_id');
             $table->unsignedBigInteger('usuario_creo_id');
             $table->timestamps();

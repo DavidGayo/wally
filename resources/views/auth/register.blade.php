@@ -61,6 +61,17 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">Rol</label>
+
+                            <div class="col-md-6">
+                                <select name="rol" id="rol" class="form-control">
+                                    <option value="admin">Administrador</option>
+                                    <option value="invitado">Invitado</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

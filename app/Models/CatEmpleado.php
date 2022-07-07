@@ -10,14 +10,14 @@ class CatEmpleado extends Model
     use HasFactory;
 
     public function proyecto(){
-    	return $this->hasMany('App/Models/empleados_proyecto');
+    	return $this->hasMany('App\Models\EmpleadosProyecto');
     }
 
     public function estatus(){
-    	return $this->belongsTo('App/Models/cat_estatu');
+    	return $this->belongsTo('App\Models\CatEstatu');
     }
 
     public function usuario(){
-    	return $this->belongsTo('App/Models/User');
+    	return $this->belongsTo('App\Models\User', 'usuario_creo_id');
     }
 }

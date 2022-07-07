@@ -10,10 +10,10 @@ class CatProducto extends Model
     use HasFactory;
 
     public function gasto(){
-    	return $this->hasMany('App/Models/gastos_proyecto');
+    	return $this->hasMany('App\Models\GastosProyecto');
     }
 
     public function usuario(){
-    	return $this->belongsTo('App/Models/User');
+    	return $this->belongsTo('App\Models\User');
     }
 }

@@ -15,7 +15,8 @@ class CatEstatuController extends Controller
     public function index()
     {
         $estatus = CatEstatu::all();
-        return $estatus;
+        
+        return view('estatus.index',['estatus' => $estatus]);
     }
 
     /**
@@ -25,7 +26,7 @@ class CatEstatuController extends Controller
      */
     public function create()
     {
-        //
+        return view('estatus.create');
     }
 
     /**
@@ -36,7 +37,13 @@ class CatEstatuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estatus = new CatEstatu;
+        $estatus->nombre_estatus = $request->input('nombre_estatus');
+        $estatus->save();
+
+        return redirect()->route('cat_estatus.index')->with([
+            'mensaje_success' => 'El estatus a sido creado correctamente!!'
+        ]);
     }
 
     /**
@@ -56,9 +63,11 @@ class CatEstatuController extends Controller
      * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function edit(CatEstatu $catEstatu)
+    public function edit(CatEstatu $catEstatu, $id)
     {
-        //
+        $estatus = $catEstatu::find($id);
+        
+        return view('estatus.edit', ['estatus' => $estatus]);
     }
 
     /**
@@ -68,9 +77,16 @@ class CatEstatuController extends Controller
      * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatEstatu $catEstatu)
+    public function update(Request $request, CatEstatu $catEstatu, $id)
     {
-        //
+        $estatus = $catEstatu::find($id);
+        $estatus->nombre_estatus = $request->input('nombre_estatus');
+        $estatus->update();
+
+        return redirect()->route('cat_estatus.index')->with([
+            'mensaje_info' => 'El estatus a sido actualizado correctamente!!'
+        ]);
+
     }
 
     /**
@@ -79,9 +95,14 @@ class CatEstatuController extends Controller
      * @param  \App\Models\CatEstatu  $catEstatu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CatEstatu $catEstatu)
+    public function destroy(CatEstatu $catEstatu, $id)
     {
-        //
+        $estatus = $catEstatu::find($id);
+        $estatus->destroy();
+
+        return redirect()->route('cat_estatus.index')->with([
+            'mensaje_danger' => 'El estatus a sido eliminado correctamente!!'
+        ]);
     }
 
 }

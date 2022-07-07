@@ -14,7 +14,9 @@ class CatProductoController extends Controller
      */
     public function index()
     {
-        //
+       $productos = CatProducto::all();
+
+       return view('producto.index',['productos' => $productos]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CatProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('producto.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class CatProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new CatProducto;
+        $producto->nombre_producto = $request->input('nombre_producto');
+        $producto->descripcion_producto = $request->input('descripcion_producto');
+        $producto->usuario_creo_id = auth()->user()->id;
+        $producto->save();
+
+        return redirect()->route('producto.index')->with([
+            'mensaje_success' => 'El producto a sido creado correctamente!!'
+        ]);
     }
 
     /**
@@ -44,9 +54,11 @@ class CatProductoController extends Controller
      * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function show(CatProducto $catProducto)
+    public function show(CatProducto $catProducto, $id)
     {
-        //
+        $producto = $catProducto::find($id);
+
+        return view('producto.show', ['producto' => $producto]);
     }
 
     /**
@@ -55,9 +67,11 @@ class CatProductoController extends Controller
      * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function edit(CatProducto $catProducto)
+    public function edit(CatProducto $catProducto, $id)
     {
-        //
+        $producto = $catProducto::find($id);
+
+        return view('producto.edit', ['producto' => $producto]);
     }
 
     /**
@@ -67,9 +81,17 @@ class CatProductoController extends Controller
      * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatProducto $catProducto)
+    public function update(Request $request, CatProducto $catProducto, $id)
     {
-        //
+        $producto = $catProducto::find($id);
+        $producto->nombre_producto = $request->input('nombre_producto');
+        $producto->descripcion_producto = $request->input('descripcion_producto');
+        $producto->usuario_creo_id = auth()->user()->id;
+        $producto->update();
+
+         return redirect()->route('producto.index')->with([
+            'mensaje_success' => 'El producto a sido actualizado correctamente!!'
+        ]);
     }
 
     /**
@@ -78,8 +100,12 @@ class CatProductoController extends Controller
      * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CatProducto $catProducto)
+    public function destroy(CatProducto $catProducto, $id)
     {
-        //
+        $producto = $catProducto::find($id);
+        $producto->destroy();
+        return redirect()->route('producto.index')->with([
+            'mensaje_success' => 'El producto a sido eliminado correctamente!!'
+        ]);
     }
 }

@@ -1,0 +1,1 @@
+{{ $empleo->nombre_empleo }}
