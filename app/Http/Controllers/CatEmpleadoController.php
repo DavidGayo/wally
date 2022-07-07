@@ -110,7 +110,7 @@ class CatEmpleadoController extends Controller
         $empleado = $catEmpleado::find($id);
         $empleado->destroy();
 
-         return redirect()->route('empleado.index')->with([
+        return redirect()->route('empleado.index')->with([
             'mensaje_danger' => 'El empleado a sido eliminado correctamente!!'
         ]);
     }

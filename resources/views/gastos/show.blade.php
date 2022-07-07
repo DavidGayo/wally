@@ -1,0 +1,1 @@
+{{ $proyecto->fecha_inicio }}

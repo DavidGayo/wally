@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatProducto;
 use App\Models\GastosProyecto;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class GastosProyectoController extends Controller
@@ -14,7 +16,9 @@ class GastosProyectoController extends Controller
      */
     public function index()
     {
-        //
+        $gastos = GastosProyecto::all();
+
+        return view('gastos.index',['gastos' => $gastos]);
     }
 
     /**
@@ -24,7 +28,10 @@ class GastosProyectoController extends Controller
      */
     public function create()
     {
-        //
+        $productos = CatProducto::all();
+        $proyectos = Proyecto::all();
+
+        return view('gastos.create', ['productos' => $productos, 'proyectos' => $proyectos ]);
     }
 
     /**
@@ -35,7 +42,18 @@ class GastosProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gasto = new GastosProyecto;
+        $gasto->producto_id = $request->input('producto_id');
+        $gasto->proyecto_id = $request->input('proyecto_id');
+        $gasto->precio_unitario = $request->input('precio_unitario');
+        $gasto->cantidad = $request->input('cantidad');
+        $gasto->total = $request->input('total');
+        $gasto->usuario_creo_id = auth()->user()->id;
+        $gasto->save();
+
+        return redirect()->route('gasto.index')->with([
+            'mensaje_success' => 'El gasto a sido creado correctamente!!'
+        ]);
     }
 
     /**
@@ -44,9 +62,11 @@ class GastosProyectoController extends Controller
      * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(GastosProyecto $gastosProyecto)
+    public function show(GastosProyecto $gastosProyecto, $id)
     {
-        //
+        $gasto = $gastosProyecto::find($id);
+
+        return view('gastos.show', ['gasto' => $gasto]);
     }
 
     /**
@@ -55,9 +75,13 @@ class GastosProyectoController extends Controller
      * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(GastosProyecto $gastosProyecto)
+    public function edit(GastosProyecto $gastosProyecto, $id)
     {
-        //
+        $productos = CatProducto::all();
+        $proyectos = Proyecto::all();
+        $gasto = $gastosProyecto::find($id);
+        
+        return view('gastos.edit',['productos' => $productos, 'proyectos' => $proyectos, 'gasto' => $gasto]);
     }
 
     /**
@@ -67,9 +91,20 @@ class GastosProyectoController extends Controller
      * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GastosProyecto $gastosProyecto)
+    public function update(Request $request, GastosProyecto $gastosProyecto, $id)
     {
-        //
+        $gasto = $gastosProyecto::find($id);
+        $gasto->producto_id = $request->input('producto_id');
+        $gasto->proyecto_id = $request->input('proyecto_id');
+        $gasto->precio_unitario = $request->input('precio_unitario');
+        $gasto->cantidad = $request->input('cantidad');
+        $gasto->total = $request->input('total');
+        $gasto->usuario_creo_id = auth()->user()->id;
+        $gasto->update();
+
+        return redirect()->route('gastos.index')->with([
+            'mensaje_info' => 'El gato a sido actualizado correctamente!!'
+        ]);
     }
 
     /**
@@ -78,8 +113,13 @@ class GastosProyectoController extends Controller
      * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GastosProyecto $gastosProyecto)
+    public function destroy(GastosProyecto $gastosProyecto, $id)
     {
-        //
+        $gasto = $gastosProyecto::find($id);
+        $gasto->destroy();
+
+        return redirect()->route('gastos.index')->with([
+            'mensaje_danger' => 'El gasto a sido eliminado correctamente!!'
+        ]);
     }
 }
