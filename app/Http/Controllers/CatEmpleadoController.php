@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatEmpleado;
+use App\Models\CatEstatu;
 use Illuminate\Http\Request;
 
 class CatEmpleadoController extends Controller
@@ -14,7 +15,9 @@ class CatEmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = catEmpleado::all();
+
+        return view('empleado.index',['empleados' => $empleados]);
     }
 
     /**
@@ -24,7 +27,8 @@ class CatEmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        $estatus = CatEstatu::all();
+        return view('empleado.create', ['estatus' => $estatus]);
     }
 
     /**
@@ -35,7 +39,16 @@ class CatEmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleado =  new CatEmpleado;
+        $empleado->nombre_empleado = $request->input('nombre_empleado');
+        $empleado->direccion_empleado = $request->input('direccion_empleado');
+        $empleado->estatus_id = $request->input('estatus');
+        $empleado->usuario_creo_id = auth()->user()->id;
+        $empleado->save();
+
+        return redirect()->route('empleado.index')->with([
+            'mensaje_success' => 'El estatus a sido creado correctamente!!'
+        ]);
     }
 
     /**
@@ -44,9 +57,11 @@ class CatEmpleadoController extends Controller
      * @param  \App\Models\catEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function show(CatEmpleado $catEmpleado)
+    public function show(CatEmpleado $catEmpleado, $id)
     {
-        //
+        $empleado = $catEmpleado::find($id);
+
+        return view('empleado.show',['empleado' => $empleado]);
     }
 
     /**
@@ -55,9 +70,12 @@ class CatEmpleadoController extends Controller
      * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(CatEmpleado $catEmpleado)
+    public function edit(CatEmpleado $catEmpleado, $id)
     {
-        //
+        $empleado = $catEmpleado::find($id);
+        $estatus = CatEstatu::all();
+
+        return view('empleado.edit', ['empleado' => $empleado, 'estatus' => $estatus ]);
     }
 
     /**
@@ -67,9 +85,18 @@ class CatEmpleadoController extends Controller
      * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatEmpleado $catEmpleado)
+    public function update(Request $request, CatEmpleado $catEmpleado, $id)
     {
-        //
+        $empleado = $catEmpleado::find($id);
+        $empleado->nombre_empleado = $request->input('nombre_empleado');
+        $empleado->direccion_empleado = $request->input('direccion_empleado');
+        $empleado->estatus_id = $request->input('estatus');
+        $empleado->usuario_creo_id = auth()->user()->id;
+        $empleado->update();
+
+        return redirect()->route('empleado.index')->with([
+            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
+        ]);
     }
 
     /**
@@ -78,8 +105,13 @@ class CatEmpleadoController extends Controller
      * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CatEmpleado $catEmpleado)
+    public function destroy(CatEmpleado $catEmpleado, $id)
     {
-        //
+        $empleado = $catEmpleado::find($id);
+        $empleado->destroy();
+
+         return redirect()->route('empleado.index')->with([
+            'mensaje_danger' => 'El empleado a sido eliminado correctamente!!'
+        ]);
     }
 }

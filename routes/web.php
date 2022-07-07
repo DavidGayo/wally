@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CatEmpleadoController;
+use App\Http\Controllers\CatEmpleoController;
 use App\Http\Controllers\CatEstatuController;
+use App\Http\Controllers\CatProductoController;
+use App\Http\Controllers\ProyectoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/cat_estatus', CatEstatuController::class);
+Route::resource('/empleado', CatEmpleadoController::class);
+Route::resource('/producto', CatProductoController::class);
+Route::resource('/empleo', CatEmpleoController::class);
+Route::resource('/proyecto', ProyectoController::class);

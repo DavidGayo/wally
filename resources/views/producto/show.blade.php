@@ -1,0 +1,1 @@
+{{ $producto->nombre_producto }}
