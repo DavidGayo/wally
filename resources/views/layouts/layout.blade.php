@@ -13,54 +13,55 @@
 	    <!--end::Fonts -->
 
 	    <!--begin::Page Vendors Styles(used by this page) -->
-	     <link href="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />  <!-- Calendario -->
+	     <link href="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />  <!-- Calendario -->
 	    <!--end::Page Vendors Styles -->
 	        
-	        
+	    <link href="{{ asset('assets/vendors/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+
 	    <!--begin:: Global Mandatory Vendors -->
-		<link href="./assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" /> <!-- Scroll -->
+		<link href="{{ asset('assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" type="text/css" /> <!-- Scroll -->
 		<!--end:: Global Mandatory Vendors -->
 
 		<!--begin:: Global Optional Vendors -->
-		<link href="./assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />  <!-- Juntar elementos -->
-		<link href="./assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" /> <!-- Fechas -->
-		<link href="./assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" /> <!-- Fechas -->
-		<link href="./assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" /> <!-- Hora -->
-		<link href="./assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" /> <!-- Rango de fechas -->
-		<link href="./assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" /> <!-- para aumentar o disminuir con flechas o maus -->
-		<link href="./assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" /> <!-- Inputs de select -->
-		<link href="./assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" /> <!-- Activas o desactivar checkbox-->
-		<link href="./assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />  <!-- Estilos para select-->
-		<link href="./assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
-		<link href="./assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
-		<link href="./assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />  <!-- Arrastrar y soltar -->
-		<link href="./assets/vendors/general/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" /> <!-- Select de etiquetas -->
-		<link href="./assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />  <!-- Animacion -->
-		<link href="./assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" /> <!-- Notificaciones -->
-		<link href="./assets/vendors/general/dual-listbox/dist/dual-listbox.css" rel="stylesheet" type="text/css" /> <!-- Lista doble -->
-		<link href="./assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />  <!-- Graficas -->
-		<link href="./assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" /> <!-- Alertas -->
-		<link href="./assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" /> <!-- Iconos -->
-		<link href="./assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" /> <!-- Iconos -->
-		<link href="./assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" /> <!-- Iconos -->
-		<link href="./assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" /> <!-- Iconos -->
-		<link href="./assets/vendors/general/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" /> <!-- Iconos -->
+		<link href="{{ asset('assets/vendors/general/tether/dist/css/tether.css') }}" rel="stylesheet" type="text/css" />  <!-- Juntar elementos -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css" /> <!-- Fechas -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Fechas -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Hora -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Rango de fechas -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}" rel="stylesheet" type="text/css" /> <!-- para aumentar o disminuir con flechas o maus -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet" type="text/css" /> <!-- Inputs de select -->
+		<link href="{{ asset('assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css') }}" rel="stylesheet" type="text/css" /> <!-- Activas o desactivar checkbox-->
+		<link href="{{ asset('assets/vendors/general/select2/dist/css/select2.css') }}" rel="stylesheet" type="text/css" />  <!-- Estilos para select-->
+		<link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
+		<link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
+		<link href="{{ asset('assets/vendors/general/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />  <!-- Arrastrar y soltar -->
+		<link href="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.css') }}" rel="stylesheet" type="text/css" /> <!-- Select de etiquetas -->
+		<link href="{{ asset('assets/vendors/general/animate.css/animate.css') }}" rel="stylesheet" type="text/css" />  <!-- Animacion -->
+		<link href="{{ asset('assets/vendors/general/toastr/build/toastr.css') }}" rel="stylesheet" type="text/css" /> <!-- Notificaciones -->
+		<link href="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.css') }}" rel="stylesheet" type="text/css" /> <!-- Lista doble -->
+		<link href="{{ asset('assets/vendors/general/morris.js/morris.css') }}" rel="stylesheet" type="text/css" />  <!-- Graficas -->
+		<link href="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet" type="text/css" /> <!-- Alertas -->
+		<link href="{{ asset('assets/vendors/general/socicon/css/socicon.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
+		<link href="{{ asset('assets/vendors/custom/vendors/line-awesome/css/line-awesome.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
+		<link href="{{ asset('assets/vendors/custom/vendors/flaticon/flaticon.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
+		<link href="{{ asset('assets/vendors/custom/vendors/flaticon2/flaticon.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
+		<link href="{{ asset('assets/vendors/general/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
 		<!--end:: Global Optional Vendors -->
 
 		<!--begin::Global Theme Styles(used by all pages) -->
-		<link href="./assets/css/demo1/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/demo1/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 	    <!--end::Global Theme Styles -->
 
 	    <!--begin::Layout Skins(used by all pages) -->
 	        
-		<link href="./assets/css/demo1/skins/header/base/light.css" rel="stylesheet" type="text/css" />
-		<link href="./assets/css/demo1/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
-		<link href="./assets/css/demo1/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-		<link href="./assets/css/demo1/skins/aside/dark.css" rel="stylesheet" type="text/css" />        
+		<link href="{{ asset('assets/css/demo1/skins/header/base/light.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/demo1/skins/header/menu/light.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/demo1/skins/brand/dark.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/demo1/skins/aside/dark.css') }}" rel="stylesheet" type="text/css" />        
 		<!--end::Layout Skins -->
 		@yield('css')
 
-	    <link rel="shortcut icon" href="./assets/media/logos/favicon.ico" />
+	    <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
     </head>
     <!-- end::Head -->
 
@@ -94,7 +95,7 @@
 						
 						<div class="kt-aside__brand-logo">
 							<a href="demo1/index.html">
-								<img alt="Logo" src="./assets/media/logos/logo-light.png"/>
+								<img alt="Logo" src="{{ asset('assets/media/logos/logo-light.png') }}"/>
 							</a>
 						</div>
 
@@ -312,6 +313,8 @@
 					</div>
 					<!-- end:: Header -->
 					<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+
+						@yield('header')
 															
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -320,129 +323,7 @@
 							<div class="row">
 								
 								@yield('content')
-								{{-- 
-
-
-								<!--begin::Portlet-->
-		<div class="kt-portlet">
-			<div class="kt-portlet__head">
-				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">
-						Textual HTML5 Inputs
-					</h3>
-				</div>
-			</div>
-			<!--begin::Form-->
-			<form class="kt-form kt-form--label-right">
-				<div class="kt-portlet__body">
-					<div class="form-group form-group-last">
-						<div class="alert alert-secondary" role="alert">
-							<div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
-						  	<div class="alert-text">
-								Here are examples of <code>.form-control</code> applied to each textual HTML5 input type:
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-text-input" class="col-2 col-form-label">Text</label>
-						<div class="col-10">
-							<input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-search-input" class="col-2 col-form-label">Search</label>
-						<div class="col-10">
-							<input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-email-input" class="col-2 col-form-label">Email</label>
-						<div class="col-10">
-							<input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-url-input" class="col-2 col-form-label">URL</label>
-						<div class="col-10">
-							<input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-						<div class="col-10">
-							<input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-password-input" class="col-2 col-form-label">Password</label>
-						<div class="col-10">
-							<input class="form-control" type="password" value="hunter2" id="example-password-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-number-input" class="col-2 col-form-label">Number</label>
-						<div class="col-10">
-							<input class="form-control" type="number" value="42" id="example-number-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-						<div class="col-10">
-							<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-date-input" class="col-2 col-form-label">Date</label>
-						<div class="col-10">
-							<input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-month-input" class="col-2 col-form-label">Month</label>
-						<div class="col-10">
-							<input class="form-control" type="month" value="2011-08" id="example-month-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-week-input" class="col-2 col-form-label">Week</label>
-						<div class="col-10">
-							<input class="form-control" type="week" value="2011-W33" id="example-week-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-time-input" class="col-2 col-form-label">Time</label>
-						<div class="col-10">
-							<input class="form-control" type="time" value="13:45:00" id="example-time-input">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="example-color-input" class="col-2 col-form-label">Color</label>
-						<div class="col-10">
-							<input class="form-control" type="color" value="#563d7c" id="example-color-input">
-						</div>
-					</div>
-				</div>
-				<div class="kt-portlet__foot">
-					<div class="kt-form__actions">
-						<div class="row">
-							<div class="col-2">
-							</div>
-							<div class="col-10">
-								<button type="reset" class="btn btn-success">Submit</button>
-								<button type="reset" class="btn btn-secondary">Cancel</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!--end::Portlet-->
-
-
-
-
-
-								 --}}
+								
 
 							</div>
 							<!--End::Row-->							
@@ -482,81 +363,84 @@
 	        <!-- end::Global Config -->
 
 			<!--begin:: Global Mandatory Vendors -->
-			<script src="./assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>  <!-- JQuery-->
-			<script src="./assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script> <!-- Etiquetas  -->
-			<script src="./assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script> <!-- Boostrap -->
-			<script src="./assets/vendors/general/js-cookie/src/js.cookie.js" type="text/javascript"></script>  <!-- Creacion de cookies -->
-			<script src="./assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script> <!-- Formato de tiempo -->
-			<script src="./assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script> <!-- Cuadro sobre el elemento -->
-			<script src="./assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script> <!-- scroll -->
-			<script src="./assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script> <!-- deja elementos anclados-->
-			<script src="./assets/vendors/general/wnumb/wNumb.js" type="text/javascript"></script> <!-- Formato para monedas-->
+			<script src="{{ asset('assets/vendors/general/jquery/dist/jquery.js') }}" type="text/javascript"></script>  <!-- JQuery-->
+			<script src="{{ asset('assets/vendors/general/popper.js/dist/umd/popper.js') }}" type="text/javascript"></script> <!-- Etiquetas  -->
+			<script src="{{ asset('assets/vendors/general/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script> <!-- Boostrap -->
+			<script src="{{ asset('assets/vendors/general/js-cookie/src/js.cookie.js') }}" type="text/javascript"></script>  <!-- Creacion de cookies -->
+			<script src="{{ asset('assets/vendors/general/moment/min/moment.min.js') }}" type="text/javascript"></script> <!-- Formato de tiempo -->
+			<script src="{{ asset('assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js') }}" type="text/javascript"></script> <!-- Cuadro sobre el elemento -->
+			<script src="{{ asset('assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js') }}" type="text/javascript"></script> <!-- scroll -->
+			<script src="{{ asset('assets/vendors/general/sticky-js/dist/sticky.min.js') }}" type="text/javascript"></script> <!-- deja elementos anclados-->
+			<script src="{{ asset('assets/vendors/general/wnumb/wNumb.js') }}" type="text/javascript"></script> <!-- Formato para monedas-->
 			<!--end:: Global Mandatory Vendors -->
 
 			<!--begin:: Global Optional Vendors -->
-			<script src="./assets/vendors/general/jquery-form/dist/jquery.form.min.js" type="text/javascript"></script>
-			<script src="./assets/vendors/general/block-ui/jquery.blockUI.js" type="text/javascript"></script>
-			<script src="./assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/custom/js/vendors/bootstrap-datepicker.init.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/custom/js/vendors/bootstrap-timepicker.init.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script> <!-- Fechas -->
-			<script src="./assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script> <!-- para aumentar o disminuir con flechas o maus -->
-			<script src="./assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js" type="text/javascript"></script> <!-- Contador de letras -->
-			<script src="./assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js" type="text/javascript"></script> <!-- Multi select  -->
-			<script src="./assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js" type="text/javascript"></script> <!-- Select --> 
-			<script src="./assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js" type="text/javascript"></script> <!-- checkbox -->
-			<script src="./assets/vendors/custom/js/vendors/bootstrap-switch.init.js" type="text/javascript"></script> <!-- checkbox -->
-			<script src="./assets/vendors/general/select2/dist/js/select2.full.js" type="text/javascript"></script> <!-- Select -->
-			<script src="./assets/vendors/general/typeahead.js/dist/typeahead.bundle.js" type="text/javascript"></script> <!-- Motor de sugerencias -->
-			<script src="./assets/vendors/general/handlebars/dist/handlebars.js" type="text/javascript"></script> <!-- llaves para imprimir -->
-			<script src="./assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
-			<script src="./assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
-			<script src="./assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
-			<script src="./assets/vendors/general/owl.carousel/dist/owl.carousel.js" type="text/javascript"></script> <!-- slider -->
-			<script src="./assets/vendors/general/autosize/dist/autosize.js" type="text/javascript"></script> <!-- Ajusrar el cuadro de texto -->
-			<script src="./assets/vendors/general/clipboard/dist/clipboard.min.js" type="text/javascript"></script> <!-- boton de copiar -->
-			<script src="./assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script> <!-- Arrastrar y soltar -->
-			<script src="./assets/vendors/custom/js/vendors/dropzone.init.js" type="text/javascript"></script> <!-- Arrastrar y soltar -->
-			<script src="./assets/vendors/general/@yaireo/tagify/dist/tagify.polyfills.min.js" type="text/javascript"></script> <!-- tags -->
-			<script src="./assets/vendors/general/@yaireo/tagify/dist/tagify.min.js" type="text/javascript"></script> <!-- tags -->
-			<script src="./assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script> <!-- notificaciones -->
-			<script src="./assets/vendors/custom/js/vendors/bootstrap-notify.init.js" type="text/javascript"></script> <!-- notificaciones -->
-			<script src="./assets/vendors/general/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script> <!-- Validador -->
-			<script src="./assets/vendors/general/jquery-validation/dist/additional-methods.js" type="text/javascript"></script> <!-- Para el validador -->
-			<script src="./assets/vendors/custom/js/vendors/jquery-validation.init.js" type="text/javascript"></script> <!-- Validador -->
-			<script src="./assets/vendors/general/toastr/build/toastr.min.js" type="text/javascript"></script> <!-- Notificaciones -->
-			<script src="./assets/vendors/general/dual-listbox/dist/dual-listbox.js" type="text/javascript"></script> <!-- select dobles -->
-			<script src="./assets/vendors/general/raphael/raphael.js" type="text/javascript"></script> <!-- Graficas -->
-			<script src="./assets/vendors/general/morris.js/morris.js" type="text/javascript"></script> <!-- Graficas -->
-			<script src="./assets/vendors/general/chart.js/dist/Chart.bundle.js" type="text/javascript"></script> <!-- Graficas -->
-			<script src="./assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js" type="text/javascript"></script> <!-- Para cerrar session o mantenerla -->
-			<script src="./assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js" type="text/javascript"></script> <!-- para cuando el usuario no hace ninguna interraccion -->
-			<script src="./assets/vendors/general/waypoints/lib/jquery.waypoints.js" type="text/javascript"></script> <!-- agrega mas elementos -->
-			<script src="./assets/vendors/general/counterup/jquery.counterup.js" type="text/javascript"></script> <!-- animacion de conteo -->
-			<script src="./assets/vendors/general/es6-promise-polyfill/promise.min.js" type="text/javascript"></script> <!-- Ptomesas -->
-			<script src="./assets/vendors/general/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script> <!-- alertas -->
-			<script src="./assets/vendors/custom/js/vendors/sweetalert2.init.js" type="text/javascript"></script> <!-- alertas -->
-			<script src="./assets/vendors/general/jquery.repeater/src/lib.js" type="text/javascript"></script> <!-- funciones genericas  -->
-			<script src="./assets/vendors/general/jquery.repeater/src/jquery.input.js" type="text/javascript"></script> <!-- para inputs -->
-			<script src="./assets/vendors/general/jquery.repeater/src/repeater.js" type="text/javascript"></script> <!-- Para funciones asincronicas -->
-			<script src="./assets/vendors/general/dompurify/dist/purify.js" type="text/javascript"></script> <!-- obtener valores de valor espesifico -->
+			<script src="{{ asset('assets/vendors/general/jquery-form/dist/jquery.form.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('assets/vendors/general/block-ui/jquery.blockUI.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-datepicker.init.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-timepicker.init.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js') }}" type="text/javascript"></script> <!-- Fechas -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js') }}" type="text/javascript"></script> <!-- para aumentar o disminuir con flechas o maus -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js') }}" type="text/javascript"></script> <!-- Contador de letras -->
+			<script src="{{ asset('assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js') }}" type="text/javascript"></script> <!-- Multi select  -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js') }}" type="text/javascript"></script> <!-- Select --> 
+			<script src="{{ asset('assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js') }}" type="text/javascript"></script> <!-- checkbox -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-switch.init.js') }}" type="text/javascript"></script> <!-- checkbox -->
+			<script src="{{ asset('assets/vendors/general/select2/dist/js/select2.full.js') }}" type="text/javascript"></script> <!-- Select -->
+			<script src="{{ asset('assets/vendors/general/typeahead.js/dist/typeahead.bundle.js') }}" type="text/javascript"></script> <!-- Motor de sugerencias -->
+			<script src="{{ asset('assets/vendors/general/handlebars/dist/handlebars.js') }}" type="text/javascript"></script> <!-- llaves para imprimir -->
+			<script src="{{ asset('assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js') }}" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
+			<script src="{{ asset('assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js') }}" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
+			<script src="{{ asset('assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js') }}" type="text/javascript"></script> <!-- Para agregar informacion de cierta forma -->
+			<script src="{{ asset('assets/vendors/general/owl.carousel/dist/owl.carousel.js') }}" type="text/javascript"></script> <!-- slider -->
+			<script src="{{ asset('assets/vendors/general/autosize/dist/autosize.js') }}" type="text/javascript"></script> <!-- Ajusrar el cuadro de texto -->
+			<script src="{{ asset('assets/vendors/general/clipboard/dist/clipboard.min.js') }}" type="text/javascript"></script> <!-- boton de copiar -->
+			<script src="{{ asset('assets/vendors/general/dropzone/dist/dropzone.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/dropzone.init.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar -->
+			<script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.polyfills.min.js') }}" type="text/javascript"></script> <!-- tags -->
+			<script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.min.js') }}" type="text/javascript"></script> <!-- tags -->
+			<script src="{{ asset('assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js') }}" type="text/javascript"></script> <!-- notificaciones -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-notify.init.js') }}" type="text/javascript"></script> <!-- notificaciones -->
+			<script src="{{ asset('assets/vendors/general/jquery-validation/dist/jquery.validate.js') }}" type="text/javascript"></script> <!-- Validador -->
+			<script src="{{ asset('assets/vendors/general/jquery-validation/dist/additional-methods.js') }}" type="text/javascript"></script> <!-- Para el validador -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/jquery-validation.init.js') }}" type="text/javascript"></script> <!-- Validador -->
+			<script src="{{ asset('assets/vendors/general/toastr/build/toastr.min.js') }}" type="text/javascript"></script> <!-- Notificaciones -->
+			<script src="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.js') }}" type="text/javascript"></script> <!-- select dobles -->
+			<script src="{{ asset('assets/vendors/general/raphael/raphael.js') }}" type="text/javascript"></script> <!-- Graficas -->
+			<script src="{{ asset('assets/vendors/general/morris.js/morris.js') }}" type="text/javascript"></script> <!-- Graficas -->
+			<script src="{{ asset('assets/vendors/general/chart.js/dist/Chart.bundle.js') }}" type="text/javascript"></script> <!-- Graficas -->
+			<script src="{{ asset('assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js') }}" type="text/javascript"></script> <!-- Para cerrar session o mantenerla -->
+			<script src="{{ asset('assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js') }}" type="text/javascript"></script> <!-- para cuando el usuario no hace ninguna interraccion -->
+			<script src="{{ asset('assets/vendors/general/waypoints/lib/jquery.waypoints.js') }}" type="text/javascript"></script> <!-- agrega mas elementos -->
+			<script src="{{ asset('assets/vendors/general/counterup/jquery.counterup.js') }}" type="text/javascript"></script> <!-- animacion de conteo -->
+			<script src="{{ asset('assets/vendors/general/es6-promise-polyfill/promise.min.js') }}" type="text/javascript"></script> <!-- Ptomesas -->
+			<script src="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script> <!-- alertas -->
+			<script src="{{ asset('assets/vendors/custom/js/vendors/sweetalert2.init.js') }}" type="text/javascript"></script> <!-- alertas -->
+			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/lib.js') }}" type="text/javascript"></script> <!-- funciones genericas  -->
+			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/jquery.input.js') }}" type="text/javascript"></script> <!-- para inputs -->
+			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/repeater.js') }}" type="text/javascript"></script> <!-- Para funciones asincronicas -->
+			<script src="{{ asset('assets/vendors/general/dompurify/dist/purify.js') }}" type="text/javascript"></script> <!-- obtener valores de valor espesifico -->
 			<!--end:: Global Optional Vendors -->
 
 			<!--begin::Global Theme Bundle(used by all pages) -->
 	    	    	   
-			<script src="./assets/js/demo1/scripts.bundle.js" type="text/javascript"></script>
+			<script src="{{ asset('assets/js/demo1/scripts.bundle.js') }}" type="text/javascript"></script>
+
+			<script src="{{ asset('assets/vendors/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('assets/js/demo1/pages/crud/datatables/basic/headers.js') }}" type="text/javascript"></script>
 			<!--end::Global Theme Bundle -->
 
 	        <!--begin::Page Vendors(used by this page) -->
-	        <script src="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script> <!-- Calendario -->
+	        <script src="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script> <!-- Calendario -->
 	        <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script> <!-- Maps -->
-	        <script src="./assets/vendors/custom/gmaps/gmaps.js" type="text/javascript"></script> <!-- Maps -->
+	        <script src="{{ asset('assets/vendors/custom/gmaps/gmaps.js') }}" type="text/javascript"></script> <!-- Maps -->
 	        <!--end::Page Vendors -->
 	         
 	        <!--begin::Page Scripts(used by this page) -->
-	        <script src="./assets/js/demo1/pages/dashboard.js" type="text/javascript"></script>
+	        <script src="{{ asset('assets/js/demo1/pages/dashboard.js') }}" type="text/javascript"></script>
 	        <!--end::Page Scripts -->
 	        @yield('js')
     </body>
