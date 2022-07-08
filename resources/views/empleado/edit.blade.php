@@ -66,9 +66,9 @@
 						<label for="estatus" class="col-2 col-form-label">Estatus</label>
 						<div class="col-10">
 							<select class="form-control" id="estatus" name="estatus">
-								<option value="{{ $empleado->estatus->id }}">{{ $empleado->estatus->nombre_estatus }}</option>}
+								<option value="{{ $empleado->estatus->id }}">{{ $empleado->estatus->nombre_estatus }}</option>
 								@foreach ($estatus as $estatu)
-						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>}
+						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>
 						 		@endforeach
 							</select>
 						</div>

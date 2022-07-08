@@ -10,7 +10,7 @@ class EmpleadosProyecto extends Model
     use HasFactory;
 
     public function empleado(){
-    	return $this->belongsTo('App\Models\CatEmplado', 'empleado_id');
+    	return $this->belongsTo('App\Models\CatEmpleado', 'empleado_id');
     }
 
     public function empleo(){
@@ -18,7 +18,7 @@ class EmpleadosProyecto extends Model
     }
 
     public function proyecto(){
-    	return $this->belongsTo('App\Model\Proyecto', 'proyecto_id');
+        return $this->belongsTo('App\Models\Proyecto', 'proyecto_id');
     }
 
     public function usuario(){

@@ -71,22 +71,22 @@
                     <div class="form-group row">
 						<label for="fecha_inicio" class="col-2 col-form-label">Fecha inicio</label>
 						<div class="col-10">
-							<input class="form-control" type="date" id="fecha_inicio" value="{{ $proyecto->fecha_inicio}}">
+							<input class="form-control" type="date" id="fecha_inicio" name="fecha_inicio" value="{{ $proyecto->fecha_inicio}}">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="fecha_fin" class="col-2 col-form-label">Fecha fin</label>
 						<div class="col-10">
-							<input class="form-control" type="date" id="fecha_fin" value="{{ $proyecto->fecha_fin}}">
+							<input class="form-control" type="date" id="fecha_fin" name="fecha_fin" value="{{ $proyecto->fecha_fin}}">
 						</div>
 					</div>
                     <div class="form-group row">
 						<label for="estatus" class="col-2 col-form-label">Estatus</label>
 						<div class="col-10">
 							<select class="form-control" id="estatus" name="estatus">
-								<option value="{{ $proyecto->estatus->id }}">{{ $proyecto->estatus->nombre_estatus}}</option>}
+								<option value="{{ $proyecto->estatus->id }}">{{ $proyecto->estatus->nombre_estatus}}</option>
 								@foreach ($estatus as $estatu)
-						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>}
+						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>
 						 		@endforeach
 							</select>
 						</div>

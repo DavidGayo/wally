@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 	@section('content')
-		<div class="kt-grid__item kt-grid__item--fluid kt-app__content">
+		<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 			<div class="row">
 				<div class="col-xl-6 offset-xl-2">
                 	<div class="kt-portlet kt-portlet--height-fluid">

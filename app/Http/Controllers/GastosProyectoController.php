@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatEstatu;
 use App\Models\CatProducto;
 use App\Models\GastosProyecto;
 use App\Models\Proyecto;
@@ -17,7 +18,7 @@ class GastosProyectoController extends Controller
     public function index()
     {
         $gastos = GastosProyecto::all();
-
+        
         return view('gastos.index',['gastos' => $gastos]);
     }
 
@@ -30,8 +31,9 @@ class GastosProyectoController extends Controller
     {
         $productos = CatProducto::all();
         $proyectos = Proyecto::all();
+        $estatus = CatEstatu::all();
 
-        return view('gastos.create', ['productos' => $productos, 'proyectos' => $proyectos ]);
+        return view('gastos.create', ['productos' => $productos, 'proyectos' => $proyectos, 'estatus' => $estatus ]);
     }
 
     /**
@@ -43,8 +45,8 @@ class GastosProyectoController extends Controller
     public function store(Request $request)
     {
         $gasto = new GastosProyecto;
-        $gasto->producto_id = $request->input('producto_id');
-        $gasto->proyecto_id = $request->input('proyecto_id');
+        $gasto->producto_id = $request->input('producto');
+        $gasto->proyecto_id = $request->input('proyecto');
         $gasto->precio_unitario = $request->input('precio_unitario');
         $gasto->cantidad = $request->input('cantidad');
         $gasto->total = $request->input('total');

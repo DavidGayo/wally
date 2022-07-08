@@ -1,4 +1,3 @@
-
 @extends('layouts.layout')
 
     @section('header')
@@ -47,15 +46,13 @@
                 </div>
             </div>
 
-            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('empleado-proyecto.update', ['empleado_proyecto' => $empPro->id ] ) }}">
-                @method('PUT')
+            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('empleado-proyecto.store') }}">
                 @csrf
                 <div class="kt-portlet__body">
                    <div class="form-group row">
                         <label for="empleado" class="col-2 col-form-label">Empleado</label>
                         <div class="col-10">
                             <select class="form-control" id="empleado" name="empleado">
-                                <option value="{{ $empPro->empleado->id }}">{{ $empPro->empleado->nombre_empleado }}</option>
                                 @foreach ($empleados as $empleado)
                                     <option value="{{ $empleado->id }}">{{ $empleado->nombre_empleado }}</option>
                                 @endforeach
@@ -66,7 +63,6 @@
                         <label for="proyecto" class="col-2 col-form-label">Proyecto</label>
                         <div class="col-10">
                             <select class="form-control" id="proyecto" name="proyecto">
-                                <option value="{{ $empPro->proyecto->id }}">{{ $empPro->proyecto->nombre_proyecto }}</option>
                                 @foreach ($proyectos as $proyecto)
                                     <option value="{{ $proyecto->id }}">{{ $proyecto->nombre_proyecto }}</option>
                                 @endforeach
@@ -77,7 +73,6 @@
                         <label for="empleo" class="col-2 col-form-label">Empleo</label>
                         <div class="col-10">
                             <select class="form-control" id="empleo" name="empleo">
-                                <option value="{{ $empPro->empleo->id }}">{{ $empPro->empleo->nombre_empleo }}</option>
                                 @foreach ($empleos as $empleo)
                                     <option value="{{ $empleo->id }}">{{ $empleo->nombre_empleo }}</option>
                                 @endforeach
@@ -87,25 +82,25 @@
                     <div class="form-group row">
                         <label for="precio_hora" class="col-2 col-form-label">Precio hora</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="precio_hora" name="precio_hora" value="{{ $empPro->precio_hora}}">
+                            <input class="form-control" type="number" id="precio_hora" name="precio_hora">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="horas" class="col-2 col-form-label">Horas</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="horas" name="horas" value="{{ $empPro->horas}}">
+                            <input class="form-control" type="number" id="horas" name="horas">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="dias" class="col-2 col-form-label">Días</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="dias" name="dias" value="{{ $empPro->dias}}">
+                            <input class="form-control" type="number" id="dias" name="dias">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="total" class="col-2 col-form-label">Total</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="total" name="total" value="{{ $empPro->total}}">
+                            <input class="form-control" type="number" id="total" name="total">
                         </div>
                     </div>   
                 </div>
@@ -115,7 +110,7 @@
                             <div class="col-2">
                             </div>
                             <div class="col-10">
-                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                                 <button type="reset" class="btn btn-secondary">Cancelar</button>
                             </div>
                         </div>

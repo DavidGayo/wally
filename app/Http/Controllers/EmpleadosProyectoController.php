@@ -17,9 +17,10 @@ class EmpleadosProyectoController extends Controller
      */
     public function index()
     {
-        $empleadosProyectos = EmpleadosProyecto::all();
+        $empPros = EmpleadosProyecto::all();
+        
 
-        return view('empro.index', ['empleadosProyecto' => $empleadosProyectos]);
+        return view('empro.index', ['empPros' => $empPros]);
     }
 
     /**
@@ -45,9 +46,9 @@ class EmpleadosProyectoController extends Controller
     public function store(Request $request)
     {
         $empPro = new EmpleadosProyecto;
-        $empPro->empleado_id = $request->input('empleado_id');
-        $empPro->proyecto_id = $request->input('proyecto_id');
-        $empPro->empleo_id = $request->input('empleo_id');
+        $empPro->empleado_id = $request->input('empleado');
+        $empPro->proyecto_id = $request->input('proyecto');
+        $empPro->empleo_id = $request->input('empleo');
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
@@ -55,7 +56,7 @@ class EmpleadosProyectoController extends Controller
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->save();
 
-        return redirect()->route('empro.index')->with([
+        return redirect()->route('empleado-proyecto.index')->with([
             'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
         ]);
 
@@ -100,9 +101,9 @@ class EmpleadosProyectoController extends Controller
     public function update(Request $request, EmpleadosProyecto $empleadosProyecto)
     {
         $empPro = $empleadosProyectos::find($id);
-        $empPro->empleado_id = $request->input('empleado_id');
-        $empPro->proyecto_id = $request->input('proyecto_id');
-        $empPro->empleo_id = $request->input('empleo_id');
+        $empPro->empleado_id = $request->input('empleado');
+        $empPro->proyecto_id = $request->input('proyecto');
+        $empPro->empleo_id = $request->input('empleo');
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
@@ -110,7 +111,7 @@ class EmpleadosProyectoController extends Controller
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->update();
 
-        return redirect()->route('empro.index')->with([
+        return redirect()->route('empleado-proyecto.index')->with([
             'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
         ]);
     }
@@ -126,7 +127,7 @@ class EmpleadosProyectoController extends Controller
         $empPro = $empleadosProyectos::find($id);
         $empPro->destroy();
 
-        return redirect()->route('empro.index')->with([
+        return redirect()->route('empleado-proyecto.index')->with([
             'mensaje_danger' => 'El empleado a sido eliminado correctamente!!'
         ]);
     }
