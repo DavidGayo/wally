@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'e4607c42b4437c412f134c0afba68e03559dc6ed',
+    'reference' => '684b2225098576785b32b8c0b84d7ccd9a233b1e',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -436,7 +436,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'e4607c42b4437c412f134c0afba68e03559dc6ed',
+      'reference' => '684b2225098576785b32b8c0b84d7ccd9a233b1e',
     ),
     'laravel/sail' => 
     array (
@@ -839,12 +839,12 @@
     ),
     'psy/psysh' => 
     array (
-      'pretty_version' => 'v0.11.6',
-      'version' => '0.11.6.0',
+      'pretty_version' => 'v0.11.7',
+      'version' => '0.11.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3f5b5f8aaa979fbd0d1783173f4c82ad529fe621',
+      'reference' => '77fc7270031fbc28f9a7bea31385da5c4855cb7a',
     ),
     'ralouphie/getallheaders' => 
     array (
