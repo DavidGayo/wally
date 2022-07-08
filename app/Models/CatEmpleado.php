@@ -9,7 +9,7 @@ class CatEmpleado extends Model
 {
     use HasFactory;
 
-    public function empleado_proyecto(){
+    public function proyecto(){
     	return $this->hasMany('App\Models\EmpleadosProyecto');
     }
 

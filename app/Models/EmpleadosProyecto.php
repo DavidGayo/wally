@@ -14,7 +14,7 @@ class EmpleadosProyecto extends Model
     }
 
     public function empleo(){
-    	return $this->belongsTo('App\Model\CatEmpleo', 'empleo_id');
+    	return $this->belongsTo('App\Models\CatEmpleo', 'empleo_id');
     }
 
     public function proyecto(){

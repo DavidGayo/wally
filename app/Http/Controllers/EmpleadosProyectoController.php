@@ -18,7 +18,6 @@ class EmpleadosProyectoController extends Controller
     public function index()
     {
         $empPros = EmpleadosProyecto::all();
-        
 
         return view('empro.index', ['empPros' => $empPros]);
     }
