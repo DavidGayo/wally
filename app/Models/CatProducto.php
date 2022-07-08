@@ -14,6 +14,6 @@ class CatProducto extends Model
     }
 
     public function usuario(){
-    	return $this->belongsTo('App\Models\User');
+    	return $this->belongsTo('App\Models\User', 'usuario_creo_id');
     }
 }

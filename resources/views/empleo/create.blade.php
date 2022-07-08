@@ -1,21 +1,3 @@
-<<<<<<< HEAD
- <form method="POST" action="{{ route('empleo.store') }}">
-=======
-{{--  <form method="POST" action="{{ route('empleo.store') }}">
->>>>>>> 72fc6225609bbcf196fe05406129f3879736483a
- 	@csrf
- 	<label class="" for="nombre_empleo">Nombre</label>
- 	<input type="text" name="nombre_empleo" placeholder="Nombre empleo">
-
- 	<label class="" for="descripcion_empleo">Descripción</label>
- 	<textarea name="descripcion_empleo"></textarea>
-
- 	<button class="btn btn-primary btn-sm" type="submit">Guardar</button>
-<<<<<<< HEAD
- </form>
-=======
- </form> --}}
-
 @extends('layouts.layout')
 
     @section('header')
@@ -97,5 +79,3 @@
 
 
     @stop
-        
->>>>>>> 72fc6225609bbcf196fe05406129f3879736483a

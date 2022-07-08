@@ -14,7 +14,7 @@ class CatEmpleado extends Model
     }
 
     public function estatus(){
-    	return $this->belongsTo('App\Models\CatEstatu');
+    	return $this->belongsTo('App\Models\CatEstatu', 'estatus_id');
     }
 
     public function usuario(){

@@ -18,10 +18,10 @@ class Proyecto extends Model
     }
 
     public function estatus(){
-    	return $this->belongsTo('App\Models\CatEstatu');
+    	return $this->belongsTo('App\Models\CatEstatu', 'estatus_id');
     }
 
     public function usuario(){
-    	return $this->belongsTo('App\Models\User');
+    	return $this->belongsTo('App\Models\User', 'usuario_creo_id');
     }
 }

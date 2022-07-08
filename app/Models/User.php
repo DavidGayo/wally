@@ -44,7 +44,7 @@ class User extends Authenticatable
     ];
 
     public function estatus(){
-        return $this->belongsTo('App\Models\CatEstatu');
+        return $this->belongsTo('App\Models\CatEstatu', 'estatus_id');
     }
 
     public function empleado(){

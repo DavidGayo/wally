@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-@foreach ($empleos as $empleo)
-	{{ $empleo->nombre_empleo }}
-@endforeach
-=======
 @extends('layouts.layout')
 
 	@section('content')
@@ -44,7 +39,7 @@
 							<tr>
 						  		<td>{{ $empleo->nombre_empleo }}</td>
 						  		<td>{{ $empleo->descripcion_empleo }}</td>
-						  		<td><a role="button" class="btn btn-brand btn-elevate btn-icon" href="{{ route('empleo.edit', ['empleo' => $empleo->id]) }}"><i class="la la-edit"></i></a></td>
+						  		<td><a role="button" class="btn btn-brand btn-elevate btn-icon" href="{{ route('empleo.edit', ['empleo' => $empleo->id]) }}"><i class="la la-edit"></i></a>&nbsp;<a role="button" class="btn btn-warning btn-elevate btn-icon" href="{{ route('empleo.show', ['empleo' => $empleo->id]) }}"><i class="la la-eye"></i></a></td>
 						@endforeach
 					</tbody>
 				</table>
@@ -53,4 +48,3 @@
 
 		
 	@stop
->>>>>>> 72fc6225609bbcf196fe05406129f3879736483a
