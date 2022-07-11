@@ -42,9 +42,9 @@
 						  		<td>{{ $empPro->proyecto->nombre_proyecto }}</td>
 						  		<td>{{ $empPro->empleado->nombre_empleado }}</td>
 						  		<td>{{ $empPro->empleo->nombre_empleo }}</td>
-						  		{{-- <td>{{ $empPro->horas }}</td>
+						  		<td>{{ $empPro->horas }}</td>
 						  		<td><a role="button" class="btn btn-brand btn-elevate btn-icon" href="{{ route('empleado-proyecto.edit', ['empleado_proyecto' => $empPro->id]) }}"><i class="la la-edit"></i></a>&nbsp;<a role="button" class="btn btn-warning btn-elevate btn-icon" href="{{ route('empleado-proyecto.show', ['empleado_proyecto' => $empPro->id]) }}"><i class="la la-eye"></i></a></td>
-						@endforeach --}}
+						@endforeach 
 					</tbody>
 				</table>
 			</div>
