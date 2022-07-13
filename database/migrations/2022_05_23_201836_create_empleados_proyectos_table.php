@@ -19,8 +19,8 @@ class CreateEmpleadosProyectosTable extends Migration
             $table->unsignedBigInteger('proyecto_id');
             $table->unsignedBigInteger('empleo_id');
             $table->double('precio_hora',8,2)->nullable();
-            $table->unsignedInteger('horas');
-            $table->unsignedInteger('dias');
+            $table->unsignedInteger('horas')->nullable();
+            $table->unsignedInteger('dias')->nullable();
             $table->double('total',8,2)->nullable();
             $table->unsignedBigInteger('usuario_creo_id');
             $table->timestamps();

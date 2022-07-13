@@ -6,28 +6,20 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Base Controls                            
+                        Empleados-Proyecto                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
-                        <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Crud                        
+                        <a href="{{ route('empleado-proyecto.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleado-Proyecto                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Forms & Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Form Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Base Inputs                        
-                        </a>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Crear
+                        </span>
                     </div>
                 </div>        
             </div>
@@ -82,25 +74,25 @@
                     <div class="form-group row">
                         <label for="precio_hora" class="col-2 col-form-label">Precio hora</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="precio_hora" name="precio_hora">
+                            <input class="form-control" type="number" id="precio_hora" name="precio_hora" min="1" step=".01">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="horas" class="col-2 col-form-label">Horas</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="horas" name="horas">
+                            <input class="form-control" type="number" id="horas" name="horas" min="1" step=".01">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="dias" class="col-2 col-form-label">Días</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="dias" name="dias">
+                            <input class="form-control" type="number" id="dias" name="dias" min="1">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="total" class="col-2 col-form-label">Total</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="total" name="total">
+                            <input class="form-control" type="number" id="total" name="total" step=".01">
                         </div>
                     </div>   
                 </div>
@@ -118,4 +110,24 @@
                 </div>
             </form>
         </div>
+    @stop
+
+    @section('js')
+        <script type="text/javascript">
+            let precio = document.querySelector("#precio_hora");
+            let hora = document.querySelector("#horas");
+            let dias = document.querySelector("#dias");
+            let total = document.querySelector("#total");
+            precio.addEventListener("change", resultado);
+            hora.addEventListener("change", resultado);
+            dias.addEventListener("change", resultado);
+
+            function resultado(){
+                if(precio.value != '' &&  hora.value != ''  && dias.value != ''){
+                    if(precio.value > 0 &&  hora.value > 0  && dias.value > 0){
+                        total.value = (precio.value * hora.value * dias.value).toFixed(2);
+                     }
+                }
+            }
+        </script>
     @stop

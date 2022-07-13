@@ -1,4 +1,31 @@
 @extends('layouts.layout')
+	
+	@section('header')
+        <!-- begin:: Subheader -->
+        <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+            <div class="kt-container  kt-container--fluid ">
+                <div class="kt-subheader__main">
+                    <h3 class="kt-subheader__title">
+                        Empleados-Proyecto                            
+                    </h3>
+
+                    <span class="kt-subheader__separator kt-hidden"></span>
+                    <div class="kt-subheader__breadcrumbs">
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <span class="kt-subheader__breadcrumbs-separator"></span>
+                        <a href="{{ route('empleado-proyecto.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleado-Proyecto                        
+                        </a>
+                        <span class="kt-subheader__breadcrumbs-separator"></span>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Ver
+                        </span>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <!-- end:: Subheader -->
+    @stop
 
 	@section('content')
 		<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -30,26 +57,26 @@
                                 	<div class="kt-widget__item">
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Precio hora</span>
-                                        	<spam class="kt-widget__data">{{ $empPro->precio_hora }}</span>
+                                        	<span class="kt-widget__data">{{ $empPro->precio_hora }}</span>
                                     	</div>
                                 	</div>                                      
                                 	<div class="kt-widget__item">
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Horas</span>
-                                        	<spam class="kt-widget__data">{{ $empPro->horas }}</span>
+                                        	<span class="kt-widget__data">{{ $empPro->horas }}</span>
                                     	</div>
                                 	</div>
                                 	<div class="kt-widget__item">
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Total</span>
-                                        	<spam class="kt-widget__data">{{ $empPro->total }}</span>
+                                        	<span class="kt-widget__data">{{ $empPro->total }}</span>
                                     	</div>
                                 	</div>
 
                                 	<div class="kt-widget__item">
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Usuario creo</span>
-                                        	<spam class="kt-widget__data">{{ $empPro->usuario->name }}</span>
+                                        	<span class="kt-widget__data">{{ $empPro->usuario->name }}</span>
                                     	</div>
                                 	</div>
                             	</div>

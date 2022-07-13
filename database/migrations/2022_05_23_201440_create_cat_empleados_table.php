@@ -16,7 +16,7 @@ class CreateCatEmpleadosTable extends Migration
         Schema::create('cat_empleados', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_empleado',200);
-            $table->string('direccion_empleado',200);
+            $table->string('direccion_empleado',200)->nullable();
             $table->unsignedBigInteger('estatus_id');
             $table->unsignedBigInteger('usuario_creo_id');
             $table->timestamps();

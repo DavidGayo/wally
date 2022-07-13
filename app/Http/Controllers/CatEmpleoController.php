@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatEmpleo;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class CatEmpleoController extends Controller
@@ -35,13 +36,15 @@ class CatEmpleoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $empleo = new CatEmpleo;
         $empleo->nombre_empleo = $request->input('nombre_empleo');
         $empleo->descripcion_empleo = $request->input('descripcion_empleo');
         $empleo->usuario_creo_id = auth()->user()->id;
         $empleo->save();
+
+        $flasher->addSuccess('El empleo a sido registrado correctamente!!');
 
         return redirect()->route('empleo.index')->with([
             'mensaje_success' => 'El empleo a sido creado correctamente!!'
@@ -81,7 +84,7 @@ class CatEmpleoController extends Controller
      * @param  \App\Models\CatEmpleo  $catEmpleo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatEmpleo $catEmpleo, $id)
+    public function update(Request $request, CatEmpleo $catEmpleo, FlasherInterface $flasher, $id)
     {
         $empleo = CatEmpleo::find($id); 
         $empleo->nombre_empleo = $request->input('nombre_empleo');
@@ -89,9 +92,9 @@ class CatEmpleoController extends Controller
         $empleo->usuario_creo_id =  auth()->user()->id;
         $empleo->update();
 
-        return redirect()->route('empleo.index')->with([
-            'mensaje_info' => 'El empleo a sido actualizado correctamente!!'
-        ]);
+        $flasher->addInfo('El empleo a sido actualizado correctamente!!');
+
+        return redirect()->route('empleo.index');
     }
 
     /**

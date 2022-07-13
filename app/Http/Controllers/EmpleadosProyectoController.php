@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CatEmpleado;
 use App\Models\CatEmpleo;
 use App\Models\EmpleadosProyecto;
+use Flasher\Prime\FlasherInterface;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,9 @@ class EmpleadosProyectoController extends Controller
      */
     public function create()
     {
-        $empleados = CatEmpleado::all();
-        $proyectos = Proyecto::all();
-        $empleos = CatEmpleo::all();
+        $empleados = CatEmpleado::all()->sortBy('nombre_empleado');
+        $proyectos = Proyecto::all()->sortBy('nombre_proyecto');
+        $empleos = CatEmpleo::all()->sortBy('nombre_empleo');
 
         return view('empro.create', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos]);
     }
@@ -42,7 +43,7 @@ class EmpleadosProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $empPro = new EmpleadosProyecto;
         $empPro->empleado_id = $request->input('empleado');
@@ -51,13 +52,24 @@ class EmpleadosProyectoController extends Controller
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
-        $empPro->total = $request->input('total');
+        if($request->input('precio_hora') > 0  && $request->input('horas') > 0 && $request->input('dias') > 0 ){
+            $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
+        }
+        else{
+            $empPro->total = 0;
+        }
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->save();
 
-        return redirect()->route('empleado-proyecto.index')->with([
-            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
-        ]);
+        if($empPro->total > 0){
+            $proyecto = Proyecto::find($request->input('proyecto'));
+            $proyecto->gasto = $proyecto->gasto + $empPro->total;
+            $proyecto->update();
+        }
+
+        $flasher->addSuccess('El mpleado a sido registrado correctamente!!');
+
+        return redirect()->route('empleado-proyecto.index');
 
     }
 
@@ -82,12 +94,12 @@ class EmpleadosProyectoController extends Controller
      */
     public function edit(EmpleadosProyecto $empleadosProyecto, $id)
     {
-        $empleados = CatEmpleado::all();
-        $proyectos = Proyecto::all();
-        $empleos = CatEmpleo::all();
-        $empPro = $empleadosProyectos::find($id);
+        $empleados = CatEmpleado::all()->sortBy('nombre_empleado');
+        $proyectos = Proyecto::all()->sortBy('nombre_proyecto');
+        $empleos = CatEmpleo::all()->sortBy('nombre_empleo');
+        $empPro = $empleadosProyecto::find($id);
 
-        return view('empro.create', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos, 'empPro' => $empPro]);
+        return view('empro.edit', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos, 'empPro' => $empPro]);
     }
 
     /**
@@ -97,22 +109,33 @@ class EmpleadosProyectoController extends Controller
      * @param  \App\Models\EmpleadosProyecto  $empleadosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EmpleadosProyecto $empleadosProyecto)
+    public function update(Request $request, EmpleadosProyecto $empleadosProyecto, FlasherInterface $flasher, $id)
     {
-        $empPro = $empleadosProyectos::find($id);
+        $empPro = $empleadosProyecto::find($id);
+        $gastoAnterior = $empPro->total;
         $empPro->empleado_id = $request->input('empleado');
         $empPro->proyecto_id = $request->input('proyecto');
         $empPro->empleo_id = $request->input('empleo');
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
-        $empPro->total = $request->input('total');
+        if($request->input('precio_hora') > 0  && $request->input('horas') > 0 && $request->input('dias') > 0 ){
+            $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
+        }
+        else{
+            $empPro->total = 0;
+        }
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->update();
 
-        return redirect()->route('empleado-proyecto.index')->with([
-            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
-        ]);
+        $proyecto = Proyecto::find($request->input('proyecto'));
+        $totalAnterior = $proyecto->gasto -  $gastoAnterior;
+        $proyecto->gasto = $totalAnterior + $empPro->total;
+        $proyecto->update();
+
+        $flasher->addInfo('El empleado a sido actualizado correctamente!!');
+
+        return redirect()->route('empleado-proyecto.index');
     }
 
     /**

@@ -1,5 +1,28 @@
 @extends('layouts.layout')
 
+	@section('header')
+        <!-- begin:: Subheader -->
+        <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+            <div class="kt-container  kt-container--fluid ">
+                <div class="kt-subheader__main">
+                    <h3 class="kt-subheader__title">
+                        Proyectos                            
+                    </h3>
+
+                    <span class="kt-subheader__separator kt-hidden"></span>
+                    <div class="kt-subheader__breadcrumbs">
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <span class="kt-subheader__breadcrumbs-separator"></span>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Proyectos                        
+                        </span>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <!-- end:: Subheader -->
+    @stop
+
 	@section('content')
 
 		<div class="kt-portlet kt-portlet--mobile">
@@ -31,7 +54,7 @@
 						<tr>
 						  	<th>Proyecto</th>
 						  	<th>Descripción</th>
-						  	<th>Costo</th>
+						  	<th>Gasto</th>
 						  	<th>Fecha inicio</th>
 						  	<th>Fecha fin</th>
 						  	<th>Estatus</th>
@@ -43,9 +66,9 @@
 							<tr>
 						  		<td>{{ $proyecto->nombre_proyecto }}</td>
 						  		<td>{{ $proyecto->descripcion_proyecto }}</td>
-						  		<td>{{ $proyecto->costo }}</td>
-						  		<td>{{ $proyecto->fecha_inicio }}</td>
-						  		<td>{{ $proyecto->fecha_fin }}</td>
+						  		<td>{{ $proyecto->gasto }}</td>
+						  		<td>{{ date('d/m/Y', strtotime($proyecto->fecha_inicio)) }}</td>
+						  		<td>{{ date('d/m/Y', strtotime($proyecto->fecha_fin)) }}</td>
 						  		<td>{{ $proyecto->estatus->nombre_estatus }}</td>
 						  		<td><a role="button" class="btn btn-brand btn-elevate btn-icon" href="{{ route('proyecto.edit', ['proyecto' => $proyecto->id]) }}"><i class="la la-edit"></i></a>&nbsp;<a role="button" class="btn btn-warning btn-elevate btn-icon" href="{{ route('proyecto.show', ['proyecto' => $proyecto->id]) }}"><i class="la la-eye"></i></a></td>
 						@endforeach

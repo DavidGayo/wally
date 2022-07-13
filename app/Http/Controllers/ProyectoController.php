@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatEstatu;
+use App\Models\EmpleadosProyecto;
+use Flasher\Prime\FlasherInterface;
+use App\Models\GastosProyecto;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
@@ -38,21 +41,20 @@ class ProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $proyecto = new Proyecto;
         $proyecto->nombre_proyecto = $request->input('nombre_proyecto');
         $proyecto->descripcion_proyecto = $request->input('descripcion_proyecto');
-        $proyecto->costo = $request->input('costo');
         $proyecto->fecha_inicio = $request->input('fecha_inicio');
         $proyecto->fecha_fin = $request->input('fecha_fin');
         $proyecto->estatus_id = $request->input('estatus');
         $proyecto->usuario_creo_id = auth()->user()->id;
         $proyecto->save();
 
-        return redirect()->route('proyecto.index')->with([
-            'mensaje_info' => 'El proyecto a sido creado correctamente!!'
-        ]);
+        $flasher->addSuccess('El proyecto a sido creado correctamente!!');
+
+        return redirect()->route('proyecto.index');
     }
 
     /**
@@ -64,8 +66,14 @@ class ProyectoController extends Controller
     public function show(Proyecto $proyectos, $id)
     {
         $proyecto = $proyectos::find($id);
+        $gastos = GastosProyecto::gastos($id);
+        $empPros = EmpleadosProyecto::empleados($id);
 
-        return view('proyecto.show', ['proyecto' => $proyecto]);
+        $totalGasto = $this->total($gastos);
+        $totalEmpleado = $this->total($empPros);
+
+
+        return view('proyecto.show', ['proyecto' => $proyecto, 'gastos' => $gastos, 'empPros' => $empPros, 'totalGasto' => $totalGasto, 'totalEmpleado' => $totalEmpleado]);
     }
 
     /**
@@ -89,21 +97,20 @@ class ProyectoController extends Controller
      * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, proyecto $proyectos, $id)
+    public function update(Request $request, proyecto $proyectos, FlasherInterface $flasher, $id)
     {
         $proyecto = $proyectos::find($id);
         $proyecto->nombre_proyecto = $request->input('nombre_proyecto');
         $proyecto->descripcion_proyecto = $request->input('descripcion_proyecto');
-        $proyectos->costo = $request->input('costo');
         $proyecto->fecha_inicio = $request->input('fecha_inicio');
         $proyecto->fecha_fin = $request->input('fecha_fin');
         $proyecto->estatus_id = $request->input('estatus');
         $proyecto->usuario_creo_id = auth()->user()->id;
         $proyecto->update();
 
-        return redirect()->route('proyecto.index')->with([
-            'mensaje_info' => 'El proyecto a sido actualizado correctamente!!'
-        ]);
+        $flasher->addInfo('El proyecto a sido actualizado correctamente!!');
+
+        return redirect()->route('proyecto.index');
     }
 
     /**
@@ -120,5 +127,16 @@ class ProyectoController extends Controller
         return redirect()->route('proyecto.index')->with([
             'mensaje_danger' => 'El proyecto a sido eliminado correctamente!!'
         ]);
+    }
+
+    public function total($collection){
+
+        $total = 0;
+        
+        foreach ($collection as $value) {
+            $total += $value->total;
+        }
+
+        return $total;
     }
 }

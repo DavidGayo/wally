@@ -24,4 +24,10 @@ class EmpleadosProyecto extends Model
     public function usuario(){
     	return $this->belongsTo('App\Models\User', 'usuario_creo_id');
     }
+
+    public function empleados($id){
+        $empleados = EmpleadosProyecto::where('proyecto_id', '=' ,$id)->get();
+
+        return $empleados;
+    }
 }

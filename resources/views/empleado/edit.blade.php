@@ -1,33 +1,25 @@
   @extends('layouts.layout')
 
-    @section('header')
+     @section('header')
         <!-- begin:: Subheader -->
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Base Controls                            
+                        Empleados                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
-                        <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Crud                        
+                        <a href="{{ route('empleado.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleados                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Forms & Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Form Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Base Inputs                        
-                        </a>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Editar
+                        </span>
                     </div>
                 </div>        
             </div>
@@ -46,7 +38,7 @@
                 </div>
             </div>
 
-            <form class="kt-form kt-form--label-right" action="{{ route('empleado.update', ['empleado' => $empleado->id ] ) }}">
+            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('empleado.update', ['empleado' => $empleado->id ] ) }}">
  				@method('PUT')
 				@csrf
                 <div class="kt-portlet__body">
@@ -81,7 +73,7 @@
                             </div>
                             <div class="col-10">
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
-                                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                <a href="{{ route('empleado.index') }}" role="button" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </div>
                     </div>

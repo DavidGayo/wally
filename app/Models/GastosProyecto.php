@@ -21,4 +21,11 @@ class GastosProyecto extends Model
     	return $this->belongsTo('App\Models\User', 'usuario_creo_id');
     }
 
+     public function gastos($id){
+
+        $gastos = GastosProyecto::where('proyecto_id', "=", $id)->get();
+        
+        return $gastos;
+    }
+
 }

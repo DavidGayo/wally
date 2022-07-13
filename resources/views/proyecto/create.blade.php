@@ -1,33 +1,26 @@
  @extends('layouts.layout')
 
+    
     @section('header')
         <!-- begin:: Subheader -->
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Base Controls                            
+                        Proyectos                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
-                        <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Crud                        
+                        <a href="{{ route('proyecto.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Proyectos                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Forms & Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Form Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Base Inputs                        
-                        </a>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Crear
+                        </span>
                     </div>
                 </div>        
             </div>
@@ -62,21 +55,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="costo" class="col-2 col-form-label">Costo</label>
-                        <div class="col-10">
-                            <input class="form-control" type="number" id="costo" name="costo">
-                        </div>
-                    </div>
-                    <div class="form-group row">
 						<label for="fecha_inicio" class="col-2 col-form-label">Fecha inicio</label>
 						<div class="col-10">
-							<input class="form-control" type="date" id="fecha_inicio" name="fecha_inicio">
+							<input class="form-control" type="text" name="fecha_inicio" id="kt_datepicker_1">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="fecha_fin" class="col-2 col-form-label">Fecha fin</label>
 						<div class="col-10">
-							<input class="form-control" type="date" id="fecha_fin" name="fecha_fin">
+							<input class="form-control" type="text" name="fecha_fin" id="kt_datepicker_1">
 						</div>
 					</div>
                     <div class="form-group row">
@@ -106,4 +93,28 @@
         </div>
 
 
+    @stop
+
+    @section('js')
+        <script>
+            var arrows;
+            if (KTUtil.isRTL()) {
+                arrows = {
+                    leftArrow: '<i class="la la-angle-right"></i>',
+                    rightArrow: '<i class="la la-angle-left"></i>'
+                }
+            } else {
+                arrows = {
+                    leftArrow: '<i class="la la-angle-left"></i>',
+                    rightArrow: '<i class="la la-angle-right"></i>'
+                }
+            }
+            $('#kt_datepicker_1 , #kt_datepicker_2').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayHighlight: true,
+            orientation: "bottom left",
+            templates: arrows,
+            format: 'dd/mm/yyyy'
+        });
+        </script>
     @stop
