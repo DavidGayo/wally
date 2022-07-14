@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatEstatu;
 use App\Models\CatProducto;
+use Flasher\Prime\FlasherInterface;
 use App\Models\GastosProyecto;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ class GastosProyectoController extends Controller
     public function index()
     {
         $gastos = GastosProyecto::all();
-
+        
         return view('gastos.index',['gastos' => $gastos]);
     }
 
@@ -28,8 +30,8 @@ class GastosProyectoController extends Controller
      */
     public function create()
     {
-        $productos = CatProducto::all();
-        $proyectos = Proyecto::all();
+        $productos = CatProducto::all()->sortBy('nombre_producto');
+        $proyectos = Proyecto::all()->sortBy('nombre_proyecto');
 
         return view('gastos.create', ['productos' => $productos, 'proyectos' => $proyectos ]);
     }
@@ -40,20 +42,31 @@ class GastosProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $gasto = new GastosProyecto;
-        $gasto->producto_id = $request->input('producto_id');
-        $gasto->proyecto_id = $request->input('proyecto_id');
+        $gasto->producto_id = $request->input('producto');
+        $gasto->proyecto_id = $request->input('proyecto');
         $gasto->precio_unitario = $request->input('precio_unitario');
         $gasto->cantidad = $request->input('cantidad');
-        $gasto->total = $request->input('total');
+        if($request->input('precio_unitario') > 0  && $request->input('cantidad') > 0){
+            $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
+        }
+        else{
+            $gasto->total = 0;
+        }
         $gasto->usuario_creo_id = auth()->user()->id;
         $gasto->save();
 
-        return redirect()->route('gasto.index')->with([
-            'mensaje_success' => 'El gasto a sido creado correctamente!!'
-        ]);
+        if($gasto->total > 0){
+            $proyecto = Proyecto::find($request->input('proyecto'));
+            $proyecto->gasto = $proyecto->gasto + $gasto->total;
+            $proyecto->update();
+        }
+
+        $flasher->addSuccess('El gasto a sido registrado correctamente!!');
+
+        return redirect()->route('gasto.index');
     }
 
     /**
@@ -77,8 +90,8 @@ class GastosProyectoController extends Controller
      */
     public function edit(GastosProyecto $gastosProyecto, $id)
     {
-        $productos = CatProducto::all();
-        $proyectos = Proyecto::all();
+        $productos = CatProducto::all()->sortBy('nombre_producto');
+        $proyectos = Proyecto::all()->sortBy('nombre_proyecto');
         $gasto = $gastosProyecto::find($id);
         
         return view('gastos.edit',['productos' => $productos, 'proyectos' => $proyectos, 'gasto' => $gasto]);
@@ -91,20 +104,32 @@ class GastosProyectoController extends Controller
      * @param  \App\Models\GastosProyecto  $gastosProyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GastosProyecto $gastosProyecto, $id)
+    public function update(Request $request, GastosProyecto $gastosProyecto, FlasherInterface $flasher, $id)
     {
         $gasto = $gastosProyecto::find($id);
-        $gasto->producto_id = $request->input('producto_id');
-        $gasto->proyecto_id = $request->input('proyecto_id');
+        $gastoAnterior = $gasto->total;
+        $gasto->producto_id = $request->input('producto');
+        $gasto->proyecto_id = $request->input('proyecto');
         $gasto->precio_unitario = $request->input('precio_unitario');
         $gasto->cantidad = $request->input('cantidad');
-        $gasto->total = $request->input('total');
+        if($request->input('precio_unitario') > 0  && $request->input('cantidad') > 0){
+            $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
+        }
+        else{
+            $gasto->total = 0;
+        }
         $gasto->usuario_creo_id = auth()->user()->id;
-        $gasto->update();
+        $gasto->update(); 
+        
+        
+        $proyecto = Proyecto::find($request->input('proyecto'));
+        $totalAnterior = $proyecto->gasto -  $gastoAnterior;
+        $proyecto->gasto = $totalAnterior + $gasto->total;
+        $proyecto->update();
+    
+        $flasher->addInfo('El gasto a sido actualizado correctamente!!');
 
-        return redirect()->route('gastos.index')->with([
-            'mensaje_info' => 'El gato a sido actualizado correctamente!!'
-        ]);
+        return redirect()->route('gasto.index');
     }
 
     /**

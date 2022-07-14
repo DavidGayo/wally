@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CatEmpleado;
 use App\Models\CatEstatu;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class CatEmpleadoController extends Controller
@@ -37,7 +38,7 @@ class CatEmpleadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $empleado =  new CatEmpleado;
         $empleado->nombre_empleado = $request->input('nombre_empleado');
@@ -46,9 +47,9 @@ class CatEmpleadoController extends Controller
         $empleado->usuario_creo_id = auth()->user()->id;
         $empleado->save();
 
-        return redirect()->route('empleado.index')->with([
-            'mensaje_success' => 'El estatus a sido creado correctamente!!'
-        ]);
+        $flasher->addSuccess('El empleado a sido registrado correctamente!!');
+
+        return redirect()->route('empleado.index');
     }
 
     /**
@@ -85,7 +86,7 @@ class CatEmpleadoController extends Controller
      * @param  \App\Models\CatEmpleado  $catEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatEmpleado $catEmpleado, $id)
+    public function update(Request $request, CatEmpleado $catEmpleado, FlasherInterface $flasher, $id)
     {
         $empleado = $catEmpleado::find($id);
         $empleado->nombre_empleado = $request->input('nombre_empleado');
@@ -94,9 +95,9 @@ class CatEmpleadoController extends Controller
         $empleado->usuario_creo_id = auth()->user()->id;
         $empleado->update();
 
-        return redirect()->route('empleado.index')->with([
-            'mensaje_info' => 'El empleado a sido actualizado correctamente!!'
-        ]);
+        $flasher->addInfo('El empleado a sido actualizado correctamente!!');
+
+        return redirect()->route('empleado.index');
     }
 
     /**

@@ -16,7 +16,7 @@ class CreateCatProductosTable extends Migration
         Schema::create('cat_productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_producto',100);
-            $table->text('descripcion_producto');
+            $table->text('descripcion_producto')->nullable();
             $table->unsignedBigInteger('usuario_creo_id');
             $table->timestamps();
 

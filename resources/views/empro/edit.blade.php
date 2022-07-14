@@ -6,15 +6,15 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Gastos-Proyecto                            
+                        Empleados-Proyecto                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
                         <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="{{ route('gasto.index') }}" class="kt-subheader__breadcrumbs-link">
-                            Gastos-Proyecto                        
+                        <a href="{{ route('empleado-proyecto.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleado-Proyecto                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
                         <span class="kt-subheader__breadcrumbs-link">
@@ -33,51 +33,67 @@
             <div class="kt-portlet__head">
                 <div class="kt-portlet__head-label">
                     <h3 class="kt-portlet__head-title">
-                        Gasto
+                        Empleado-Proyecto
                     </h3>
                 </div>
             </div>
 
-            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('gasto.update', ['gasto' => $gasto->id ] ) }}">
+            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('empleado-proyecto.update', ['empleado_proyecto' => $empPro->id ] ) }}">
                 @method('PUT')
                 @csrf
                 <div class="kt-portlet__body">
+                   <div class="form-group row">
+                        <label for="empleado" class="col-2 col-form-label">Empleado</label>
+                        <div class="col-10">
+                            <select class="form-control kt-selectpicker" id="empleado" name="empleado">
+                                @foreach ($empleados as $empleado)
+                                    <option value="{{ $empleado->id }}" @if( $empPro->empleado->id == $empleado->id) selected @endif>{{ $empleado->nombre_empleado }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="proyecto" class="col-2 col-form-label">Proyecto</label>
                         <div class="col-10">
                             <select class="form-control kt-selectpicker" id="proyecto" name="proyecto">
                                 @foreach ($proyectos as $proyecto)
-                                    <option value="{{ $proyecto->id }}" @if( $gasto->proyecto->id == $proyecto->id) selected @endif>{{ $proyecto->nombre_proyecto }}</option>
+                                    <option value="{{ $proyecto->id }}" @if( $empPro->proyecto->id == $proyecto->id) selected @endif>{{ $proyecto->nombre_proyecto }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="producto" class="col-2 col-form-label">Producto</label>
+                        <label for="empleo" class="col-2 col-form-label">Empleo</label>
                         <div class="col-10">
-                            <select class="form-control kt-selectpicker" id="producto" name="producto">
-                                @foreach ($productos as $producto)
-                                    <option value="{{ $producto->id }}" @if( $gasto->producto->id == $producto->id) selected @endif>{{ $producto->nombre_producto }}</option>
+                            <select class="form-control kt-selectpicker" id="empleo" name="empleo">
+                                @foreach ($empleos as $empleo)
+                                    <option value="{{ $empleo->id }}" @if( $empPro->empleo->id == $empleo->id) selected @endif>{{ $empleo->nombre_empleo }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="precio_unitario" class="col-2 col-form-label">Precio unitario</label>
+                        <label for="precio_hora" class="col-2 col-form-label">Precio hora</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="precio_unitario" name="precio_unitario" value="{{ $gasto->precio_unitario }}" step=".01">
+                            <input class="form-control" type="number" id="precio_hora" name="precio_hora" value="{{ $empPro->precio_hora}}" step=".01">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="cantidad" class="col-2 col-form-label">Cantidad</label>
+                        <label for="horas" class="col-2 col-form-label">Horas</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="cantidad" name="cantidad" value="{{ $gasto->cantidad }}" step=".01">
+                            <input class="form-control" type="number" id="horas" name="horas" value="{{ $empPro->horas}}" step=".01">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dias" class="col-2 col-form-label">Días</label>
+                        <div class="col-10">
+                            <input class="form-control" type="number" id="dias" name="dias" value="{{ $empPro->dias}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="total" class="col-2 col-form-label">Total</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="total" name="total" value="{{ $gasto->total }}" step=".01">
+                            <input class="form-control" type="number" id="total" name="total" value="{{ $empPro->total}}" step=".01">
                         </div>
                     </div>   
                 </div>
@@ -87,8 +103,8 @@
                             <div class="col-2">
                             </div>
                             <div class="col-10">
-                                <button type="submit" class="btn btn-success">Actualizar</button>
-                                <a href="{{ route('gasto.index') }}" role="button" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <a href="{{ route('empleado-proyecto.index') }}" role="button" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </div>
                     </div>
@@ -100,16 +116,18 @@
     @section('js')
         <script type="text/javascript">
             $('.kt-selectpicker').selectpicker();
-            let precio = document.querySelector("#precio_unitario");
-            let cantidad = document.querySelector("#cantidad");
+            let precio = document.querySelector("#precio_hora");
+            let hora = document.querySelector("#horas");
+            let dias = document.querySelector("#dias");
             let total = document.querySelector("#total");
             precio.addEventListener("change", resultado);
-            cantidad.addEventListener("change", resultado);
-            
+            hora.addEventListener("change", resultado);
+            dias.addEventListener("change", resultado);
+
             function resultado(){
-                if(precio.value != '' &&  cantidad.value != ''){
-                    if(precio.value > 0 &&  cantidad.value > 0 ){
-                        total.value = (precio.value * cantidad.value).toFixed(2);
+                if(precio.value != '' &&  hora.value != ''  && dias.value != ''){
+                    if(precio.value > 0 &&  hora.value > 0  && dias.value > 0){
+                        total.value = (precio.value * hora.value * dias.value).toFixed(2);
                      }
                 }
             }

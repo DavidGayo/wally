@@ -17,7 +17,7 @@ class CreateProyectosTable extends Migration
             $table->id();
             $table->string('nombre_proyecto',100);
             $table->text('descripcion_proyecto');
-            $table->double('costo',8,2)->nullable();
+            $table->double('gasto',8,2)->nullable()->default(0.0);
             $table->date('fecha_inicio')->nullable();
             $table->date('fecha_fin')->nullable();
             $table->unsignedBigInteger('estatus_id');

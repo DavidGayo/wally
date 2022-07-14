@@ -7,6 +7,7 @@
 		<title></title>
 	    <meta name="description" content="Updates and statistics">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	    <!--begin::Fonts -->
 	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">        
@@ -130,7 +131,7 @@
 		
 							<ul class="kt-menu__nav ">
 								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" >
-									<a  href="demo1/index.html" class="kt-menu__link ">
+									<a  href="#" class="kt-menu__link ">
 										<span class="kt-menu__link-icon">
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
     											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -143,12 +144,8 @@
 										<span class="kt-menu__link-text">Dashboard</span>
 									</a>
 								</li>
-								<li class="kt-menu__section ">
-                					<h4 class="kt-menu__section-text">Custom</h4>
-                					<i class="kt-menu__section-icon flaticon-more-v2"></i>
-            					</li>
             					<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
-            						<a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            						<a  href="{{ route('proyecto.index'); }}" class="kt-menu__link kt-menu__toggle">
 	            						<span class="kt-menu__link-icon">
 	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -158,87 +155,92 @@
 	    										</g>
 											</svg>
 										</span>
-										<span class="kt-menu__link-text">Applications</span>
-										<i class="kt-menu__ver-arrow la la-angle-right"></i>
+										<span class="kt-menu__link-text">Proyectos</span>
 									</a>
-									<div class="kt-menu__submenu ">
-										<span class="kt-menu__arrow"></span>
-										<ul class="kt-menu__subnav">
-											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true" >
-												<span class="kt-menu__link">
-													<span class="kt-menu__link-text">Applications</span>
-												</span>
-											</li>
-											<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
-												<a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
-													<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-														<span></span>
-													</i>
-													<span class="kt-menu__link-text">Users</span>
-													<i class="kt-menu__ver-arrow la la-angle-right"></i>
-												</a>
-												<div class="kt-menu__submenu ">
-													<span class="kt-menu__arrow"></span>
-													<ul class="kt-menu__subnav">
-														<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
-															<a  href="javascript:;" class="kt-menu__link kt-menu__toggle">
-																<i class="kt-menu__link-bullet kt-menu__link-bullet--dot">
-																	<span></span>
-																</i>
-																<span class="kt-menu__link-text">Profile 1</span>
-																<i class="kt-menu__ver-arrow la la-angle-right"></i>
-															</a>
-															<div class="kt-menu__submenu ">
-																<span class="kt-menu__arrow"></span>
-																<ul class="kt-menu__subnav">
-																	<li class="kt-menu__item " aria-haspopup="true" >
-																		<a  href="demo1/custom/apps/user/profile-1/overview.html" class="kt-menu__link ">
-																			<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-																				<span></span>
-																			</i>
-																			<span class="kt-menu__link-text">Overview</span>
-																		</a>
-																	</li>
-																	<li class="kt-menu__item " aria-haspopup="true" >
-																		<a  href="demo1/custom/apps/user/profile-1/personal-information.html" class="kt-menu__link ">
-																			<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-																				<span></span>
-																			</i>
-																			<span class="kt-menu__link-text">Personal Information</span>
-																		</a>
-																	</li>
-																	<li class="kt-menu__item " aria-haspopup="true" >
-																		<a  href="demo1/custom/apps/user/profile-1/account-information.html" class="kt-menu__link ">
-																			<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-																				<span></span>
-																			</i>
-																			<span class="kt-menu__link-text">Account Information</span>
-																		</a>
-																	</li>
-																	<li class="kt-menu__item " aria-haspopup="true" >
-																		<a  href="demo1/custom/apps/user/profile-1/change-password.html" class="kt-menu__link ">
-																			<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-																				<span></span>
-																			</i>
-																			<span class="kt-menu__link-text">Change Password</span>
-																		</a>
-																	</li>
-																	<li class="kt-menu__item " aria-haspopup="true" >
-																		<a  href="demo1/custom/apps/user/profile-1/email-settings.html" class="kt-menu__link ">
-																			<i class="kt-menu__link-bullet kt-menu__link-bullet--line">
-																				<span></span>
-																			</i>
-																			<span class="kt-menu__link-text">Email Settings</span>
-																		</a>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</li>
-										</ul>
-									</div>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('empleado.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Empleados</span>
+									</a>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('gasto.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Gastos</span>
+									</a>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('producto.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Producto</span>
+									</a>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('empleo.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Empleos</span>
+									</a>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('producto.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Usuarios</span>
+									</a>
+								</li>
+								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"  data-ktmenu-submenu-toggle="hover">
+									<a  href="{{ route('empleado-proyecto.index'); }}" class="kt-menu__link kt-menu__toggle">
+	            						<span class="kt-menu__link-icon">
+	            							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+	    										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	        										<rect id="bound" x="0" y="0" width="24" height="24"/>
+	        										<rect id="Rectangle-7" fill="#000000" x="4" y="4" width="7" height="7" rx="1.5"/>
+	        										<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+	    										</g>
+											</svg>
+										</span>
+										<span class="kt-menu__link-text">Empleado-Proyecto</span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -301,7 +303,12 @@
 									        </div>
 									    </a>
 									    <div class="kt-notification__custom kt-space-between">
-									        <a href="demo1/custom/user/login-v2.html" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</a>
+									        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        		Salir
+                                    		</a>
+		                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+		                                        @csrf
+		                                    </form>
 									    </div>
 									</div>
 									<!--end: Navigation -->
@@ -416,7 +423,7 @@
 			<script src="{{ asset('assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js') }}" type="text/javascript"></script> <!-- para cuando el usuario no hace ninguna interraccion -->
 			<script src="{{ asset('assets/vendors/general/waypoints/lib/jquery.waypoints.js') }}" type="text/javascript"></script> <!-- agrega mas elementos -->
 			<script src="{{ asset('assets/vendors/general/counterup/jquery.counterup.js') }}" type="text/javascript"></script> <!-- animacion de conteo -->
-			<script src="{{ asset('assets/vendors/general/es6-promise-polyfill/promise.min.js') }}" type="text/javascript"></script> <!-- Ptomesas -->
+			<script src="{{ asset('assets/vendors/general/es6-promise-polyfill/promise.min.js') }}" type="text/javascript"></script> <!-- Promesas -->
 			<script src="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script> <!-- alertas -->
 			<script src="{{ asset('assets/vendors/custom/js/vendors/sweetalert2.init.js') }}" type="text/javascript"></script> <!-- alertas -->
 			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/lib.js') }}" type="text/javascript"></script> <!-- funciones genericas  -->
@@ -429,8 +436,8 @@
 	    	    	   
 			<script src="{{ asset('assets/js/demo1/scripts.bundle.js') }}" type="text/javascript"></script>
 
-			<script src="{{ asset('assets/vendors/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('assets/js/demo1/pages/crud/datatables/basic/headers.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('assets/vendors/custom/datatables/datatables.bundle.js') }}" type="text/javascript"></script> <!--tablas -->
+			<script src="{{ asset('assets/js/demo1/pages/crud/datatables/basic/headers.js') }}" type="text/javascript"></script> <!--tablas -->
 			<!--end::Global Theme Bundle -->
 
 	        <!--begin::Page Vendors(used by this page) -->

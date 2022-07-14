@@ -6,28 +6,20 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Base Controls                            
+                        Empleados                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
-                        <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Crud                        
+                        <a href="{{ route('empleado.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleados                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Forms & Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Form Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Base Inputs                        
-                        </a>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Crear
+                        </span>
                     </div>
                 </div>        
             </div>
@@ -66,7 +58,7 @@
 						<div class="col-10">
 							<select class="form-control" id="estatus" name="estatus">
 								@foreach ($estatus as $estatu)
-						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>}
+						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>
 						 		@endforeach
 							</select>
 						</div>

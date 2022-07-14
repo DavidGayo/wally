@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatProducto;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class CatProductoController extends Controller
@@ -35,7 +36,7 @@ class CatProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $producto = new CatProducto;
         $producto->nombre_producto = $request->input('nombre_producto');
@@ -43,9 +44,9 @@ class CatProductoController extends Controller
         $producto->usuario_creo_id = auth()->user()->id;
         $producto->save();
 
-        return redirect()->route('producto.index')->with([
-            'mensaje_success' => 'El producto a sido creado correctamente!!'
-        ]);
+        $flasher->addSuccess('El producto a sido registrado correctamente!!');
+
+        return redirect()->route('producto.index');
     }
 
     /**
@@ -81,7 +82,7 @@ class CatProductoController extends Controller
      * @param  \App\Models\CatProducto  $catProducto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CatProducto $catProducto, $id)
+    public function update(Request $request, CatProducto $catProducto, FlasherInterface $flasher, $id)
     {
         $producto = $catProducto::find($id);
         $producto->nombre_producto = $request->input('nombre_producto');
@@ -89,9 +90,9 @@ class CatProductoController extends Controller
         $producto->usuario_creo_id = auth()->user()->id;
         $producto->update();
 
-         return redirect()->route('producto.index')->with([
-            'mensaje_success' => 'El producto a sido actualizado correctamente!!'
-        ]);
+        $flasher->addInfo('El producto a sido actualizado correctamente!!');
+
+         return redirect()->route('producto.index');
     }
 
     /**

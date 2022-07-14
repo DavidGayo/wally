@@ -1,3 +1,4 @@
+
 @extends('layouts.layout')
 
     @section('header')
@@ -6,28 +7,20 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Base Controls                            
+                        Empleo                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
-                        <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                        <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Crud                        
+                        <a href="{{ route('empleo.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleos                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Forms & Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Form Controls                        
-                        </a>
-                        <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="" class="kt-subheader__breadcrumbs-link">
-                            Base Inputs                        
-                        </a>
+                        <span class="kt-subheader__breadcrumbs-link">
+                            Editar
+                        </span>
                     </div>
                 </div>        
             </div>
@@ -35,7 +28,7 @@
         <!-- end:: Subheader -->
     @stop
 
-    @section('content')
+   @section('content')
         
         <div class="kt-portlet">
             <div class="kt-portlet__head">
@@ -53,13 +46,13 @@
                     <div class="form-group row">
                         <label for="nombre_empleo" class="col-2 col-form-label">Nombre</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" id="nombre_empleo" name="nombre_empleo" placeholder="Nombre empleo" value="{{ $empleo->nombre_empleo }}">
+                            <input class="form-control" type="text" id="nombre_empleo" name="nombre_empleo" value="{{ $empleo->nombre_empleo}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="descripcion_empleo" class="col-2 col-form-label">Descripción</label>
                         <div class="col-10">
-                            <textarea class="form-control" id="descripcion_empleo" rows="3" name="descripcion_empleo"> {{ $empleo->descripcion_empleo }} </textarea>
+                            <textarea class="form-control" id="descripcion_empleo" rows="3" name="descripcion_empleo">{{ $empleo->descripcion_empleo }}</textarea>
                         </div>
                     </div>           
                 </div>
@@ -69,8 +62,8 @@
                             <div class="col-2">
                             </div>
                             <div class="col-10">
-                                <button type="submit" class="btn btn-primary">Actualiza</button>
-                                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Actualizar</button>
+                                <a href="{{ route('empleo.index') }}" role="button" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </div>
                     </div>
@@ -80,3 +73,4 @@
 
 
     @stop
+

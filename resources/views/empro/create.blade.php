@@ -6,15 +6,15 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Gastos-Proyecto                            
+                        Empleados-Proyecto                            
                     </h3>
 
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
                         <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                        <a href="{{ route('gasto.index') }}" class="kt-subheader__breadcrumbs-link">
-                            Gastos-Proyecto                        
+                        <a href="{{ route('empleado-proyecto.index') }}" class="kt-subheader__breadcrumbs-link">
+                            Empleado-Proyecto                        
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
                         <span class="kt-subheader__breadcrumbs-link">
@@ -33,14 +33,24 @@
             <div class="kt-portlet__head">
                 <div class="kt-portlet__head-label">
                     <h3 class="kt-portlet__head-title">
-                        Producto
+                        Empleado-Proyecto
                     </h3>
                 </div>
             </div>
 
-            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('gasto.store') }}">
+            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('empleado-proyecto.store') }}">
                 @csrf
                 <div class="kt-portlet__body">
+                   <div class="form-group row">
+                        <label for="empleado" class="col-2 col-form-label">Empleado</label>
+                        <div class="col-10">
+                            <select class="form-control" id="empleado" name="empleado">
+                                @foreach ($empleados as $empleado)
+                                    <option value="{{ $empleado->id }}">{{ $empleado->nombre_empleado }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="proyecto" class="col-2 col-form-label">Proyecto</label>
                         <div class="col-10">
@@ -52,25 +62,31 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="producto" class="col-2 col-form-label">Producto</label>
+                        <label for="empleo" class="col-2 col-form-label">Empleo</label>
                         <div class="col-10">
-                            <select class="form-control" id="producto" name="producto">
-                                @foreach ($productos as $producto)
-                                    <option value="{{ $producto->id }}">{{ $producto->nombre_producto }}</option>
+                            <select class="form-control" id="empleo" name="empleo">
+                                @foreach ($empleos as $empleo)
+                                    <option value="{{ $empleo->id }}">{{ $empleo->nombre_empleo }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="precio_unitario" class="col-2 col-form-label">Precio unitario</label>
+                        <label for="precio_hora" class="col-2 col-form-label">Precio hora</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="precio_unitario" name="precio_unitario" step=".01">
+                            <input class="form-control" type="number" id="precio_hora" name="precio_hora" min="1" step=".01">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="cantidad" class="col-2 col-form-label">Cantidad</label>
+                        <label for="horas" class="col-2 col-form-label">Horas</label>
                         <div class="col-10">
-                            <input class="form-control" type="number" id="cantidad" name="cantidad" step=".01">
+                            <input class="form-control" type="number" id="horas" name="horas" min="1" step=".01">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dias" class="col-2 col-form-label">Días</label>
+                        <div class="col-10">
+                            <input class="form-control" type="number" id="dias" name="dias" min="1">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -98,16 +114,18 @@
 
     @section('js')
         <script type="text/javascript">
-            let precio = document.querySelector("#precio_unitario");
-            let cantidad = document.querySelector("#cantidad");
+            let precio = document.querySelector("#precio_hora");
+            let hora = document.querySelector("#horas");
+            let dias = document.querySelector("#dias");
             let total = document.querySelector("#total");
             precio.addEventListener("change", resultado);
-            cantidad.addEventListener("change", resultado);
-            
+            hora.addEventListener("change", resultado);
+            dias.addEventListener("change", resultado);
+
             function resultado(){
-                if(precio.value != '' &&  cantidad.value != ''){
-                    if(precio.value > 0 &&  cantidad.value > 0 ){
-                        total.value = (precio.value * cantidad.value).toFixed(2);
+                if(precio.value != '' &&  hora.value != ''  && dias.value != ''){
+                    if(precio.value > 0 &&  hora.value > 0  && dias.value > 0){
+                        total.value = (precio.value * hora.value * dias.value).toFixed(2);
                      }
                 }
             }

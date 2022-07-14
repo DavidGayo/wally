@@ -18,7 +18,7 @@ class CreateGastosProyectosTable extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->unsignedBigInteger('proyecto_id');
             $table->double('precio_unitario',8,2)->nullable();
-            $table->unsignedInteger('cantidad');
+            $table->unsignedInteger('cantidad')->nullable();
             $table->double('total',8,2)->nullable();
             $table->unsignedBigInteger('usuario_creo_id');
             $table->timestamps();
