@@ -106,8 +106,12 @@ class ProyectoController extends Controller
         $proyecto = $proyectos::find($id);
         $proyecto->nombre_proyecto = $request->input('nombre_proyecto');
         $proyecto->descripcion_proyecto = $request->input('descripcion_proyecto');
-        $proyecto->fecha_inicio = $request->input('fecha_inicio');
-        $proyecto->fecha_fin = $request->input('fecha_fin');
+        $fecha_aux = explode("/", $request->input('fecha_inicio'));
+        $fecha_inicio = $fecha_aux[2]."-".$fecha_aux[1]."-".$fecha_aux[0];
+        $fecha_aux = explode("/", $request->input('fecha_fin'));
+        $fecha_fin = $fecha_aux[2]."-".$fecha_aux[1]."-".$fecha_aux[0];
+        $proyecto->fecha_inicio = $fecha_inicio;
+        $proyecto->fecha_fin = $fecha_fin;
         $proyecto->estatus_id = $request->input('estatus');
         $proyecto->usuario_creo_id = auth()->user()->id;
         $proyecto->update();
