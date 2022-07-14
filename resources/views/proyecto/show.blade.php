@@ -63,11 +63,11 @@
                                     	</div>
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Fecha inicio</span>
-                                        	<span class="kt-widget__data">{{ $proyecto->fecha_inicio }}</span>
+                                        	<span class="kt-widget__data">{{ date('d/m/Y', strtotime($proyecto->fecha_inicio)) }}</span>
                                     	</div>
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Fecha fin</span>
-                                        	<span class="kt-widget__data">{{ $proyecto->fecha_fin }}</span>
+                                        	<span class="kt-widget__data">{{ date('d/m/Y', strtotime($proyecto->fecha_fin)) }}</span>
                                     	</div>
                                     	<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Usuario creo</span>
