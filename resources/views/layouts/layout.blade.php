@@ -14,7 +14,7 @@
 	    <!--end::Fonts -->
 
 	    <!--begin::Page Vendors Styles(used by this page) -->
-	     <link href="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />  <!-- Calendario -->
+	     {{-- <link href="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />  <!-- Calendario --> --}}
 	    <!--end::Page Vendors Styles -->
 	        
 	    <link href="{{ asset('assets/vendors/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -24,24 +24,24 @@
 		<!--end:: Global Mandatory Vendors -->
 
 		<!--begin:: Global Optional Vendors -->
-		<link href="{{ asset('assets/vendors/general/tether/dist/css/tether.css') }}" rel="stylesheet" type="text/css" />  <!-- Juntar elementos -->
+		{{-- <link href="{{ asset('assets/vendors/general/tether/dist/css/tether.css') }}" rel="stylesheet" type="text/css" />  <!-- Juntar elementos --> --}}
 		<link href="{{ asset('assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}" rel="stylesheet" type="text/css" /> <!-- Fechas -->
 		<link href="{{ asset('assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Fechas -->
 		<link href="{{ asset('assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Hora -->
 		<link href="{{ asset('assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet" type="text/css" /> <!-- Rango de fechas -->
-		<link href="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}" rel="stylesheet" type="text/css" /> <!-- para aumentar o disminuir con flechas o maus -->
+		{{-- <link href="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css') }}" rel="stylesheet" type="text/css" /> <!-- para aumentar o disminuir con flechas o maus --> --}}
 		<link href="{{ asset('assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet" type="text/css" /> <!-- Inputs de select -->
-		<link href="{{ asset('assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css') }}" rel="stylesheet" type="text/css" /> <!-- Activas o desactivar checkbox-->
+		{{-- <link href="{{ asset('assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css') }}" rel="stylesheet" type="text/css" /> <!-- Activas o desactivar checkbox--> --}}
 		<link href="{{ asset('assets/vendors/general/select2/dist/css/select2.css') }}" rel="stylesheet" type="text/css" />  <!-- Estilos para select-->
-		<link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
-		<link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider -->
-		<link href="{{ asset('assets/vendors/general/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />  <!-- Arrastrar y soltar -->
-		<link href="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.css') }}" rel="stylesheet" type="text/css" /> <!-- Select de etiquetas -->
+		{{-- <link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css') }}" rel="stylesheet" type="text/css" /> <!-- Carrusel para slider --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css" />  <!-- Arrastrar y soltar --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.css') }}" rel="stylesheet" type="text/css" /> <!-- Select de etiquetas --> --}}
 		<link href="{{ asset('assets/vendors/general/animate.css/animate.css') }}" rel="stylesheet" type="text/css" />  <!-- Animacion -->
-		<link href="{{ asset('assets/vendors/general/toastr/build/toastr.css') }}" rel="stylesheet" type="text/css" /> <!-- Notificaciones -->
-		<link href="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.css') }}" rel="stylesheet" type="text/css" /> <!-- Lista doble -->
-		<link href="{{ asset('assets/vendors/general/morris.js/morris.css') }}" rel="stylesheet" type="text/css" />  <!-- Graficas -->
-		<link href="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet" type="text/css" /> <!-- Alertas -->
+		{{-- <link href="{{ asset('assets/vendors/general/toastr/build/toastr.css') }}" rel="stylesheet" type="text/css" /> <!-- Notificaciones --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.css') }}" rel="stylesheet" type="text/css" /> <!-- Lista doble --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/morris.js/morris.css') }}" rel="stylesheet" type="text/css" />  <!-- Graficas --> --}}
+		{{-- <link href="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet" type="text/css" /> <!-- Alertas --> --}}
 		<link href="{{ asset('assets/vendors/general/socicon/css/socicon.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
 		<link href="{{ asset('assets/vendors/custom/vendors/line-awesome/css/line-awesome.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
 		<link href="{{ asset('assets/vendors/custom/vendors/flaticon/flaticon.css') }}" rel="stylesheet" type="text/css" /> <!-- Iconos -->
@@ -275,7 +275,7 @@
 
 			        			<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
 					        		<!--begin: Head -->
-								    <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(./assets/media/misc/bg-1.jpg)">
+								    <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(public/assets/media/misc/bg-1.jpg)">
 								        <div class="kt-user-card__avatar">
 								            <img class="kt-hidden" alt="Pic" src="./assets/media/users/300_25.jpg" />
 								            <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
@@ -375,10 +375,10 @@
 			<script src="{{ asset('assets/vendors/general/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script> <!-- Boostrap -->
 			<script src="{{ asset('assets/vendors/general/js-cookie/src/js.cookie.js') }}" type="text/javascript"></script>  <!-- Creacion de cookies -->
 			<script src="{{ asset('assets/vendors/general/moment/min/moment.min.js') }}" type="text/javascript"></script> <!-- Formato de tiempo -->
-			<script src="{{ asset('assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js') }}" type="text/javascript"></script> <!-- Cuadro sobre el elemento -->
+			{{-- <script src="{{ asset('assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js') }}" type="text/javascript"></script> <!-- Cuadro sobre el elemento --> --}}
 			<script src="{{ asset('assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js') }}" type="text/javascript"></script> <!-- scroll -->
 			<script src="{{ asset('assets/vendors/general/sticky-js/dist/sticky.min.js') }}" type="text/javascript"></script> <!-- deja elementos anclados-->
-			<script src="{{ asset('assets/vendors/general/wnumb/wNumb.js') }}" type="text/javascript"></script> <!-- Formato para monedas-->
+			{{-- <script src="{{ asset('assets/vendors/general/wnumb/wNumb.js') }}" type="text/javascript"></script> <!-- Formato para monedas--> --}}
 			<!--end:: Global Mandatory Vendors -->
 
 			<!--begin:: Global Optional Vendors -->
@@ -390,12 +390,12 @@
 			<script src="{{ asset('assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}" type="text/javascript"></script> <!-- Fechas -->
 			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-timepicker.init.js') }}" type="text/javascript"></script> <!-- Fechas -->
 			<script src="{{ asset('assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js') }}" type="text/javascript"></script> <!-- Fechas -->
-			<script src="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js') }}" type="text/javascript"></script> <!-- para aumentar o disminuir con flechas o maus -->
+			{{-- <script src="{{ asset('assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js') }}" type="text/javascript"></script> <!-- para aumentar o disminuir con flechas o maus --> --}}
 			<script src="{{ asset('assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js') }}" type="text/javascript"></script> <!-- Contador de letras -->
 			<script src="{{ asset('assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js') }}" type="text/javascript"></script> <!-- Multi select  -->
 			<script src="{{ asset('assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js') }}" type="text/javascript"></script> <!-- Select --> 
-			<script src="{{ asset('assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js') }}" type="text/javascript"></script> <!-- checkbox -->
-			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-switch.init.js') }}" type="text/javascript"></script> <!-- checkbox -->
+			{{-- <script src="{{ asset('assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js') }}" type="text/javascript"></script> <!-- checkbox --> --}}
+			{{-- <script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-switch.init.js') }}" type="text/javascript"></script> <!-- checkbox --> --}}
 			<script src="{{ asset('assets/vendors/general/select2/dist/js/select2.full.js') }}" type="text/javascript"></script> <!-- Select -->
 			<script src="{{ asset('assets/vendors/general/typeahead.js/dist/typeahead.bundle.js') }}" type="text/javascript"></script> <!-- Motor de sugerencias -->
 			<script src="{{ asset('assets/vendors/general/handlebars/dist/handlebars.js') }}" type="text/javascript"></script> <!-- llaves para imprimir -->
@@ -405,31 +405,31 @@
 			<script src="{{ asset('assets/vendors/general/owl.carousel/dist/owl.carousel.js') }}" type="text/javascript"></script> <!-- slider -->
 			<script src="{{ asset('assets/vendors/general/autosize/dist/autosize.js') }}" type="text/javascript"></script> <!-- Ajusrar el cuadro de texto -->
 			<script src="{{ asset('assets/vendors/general/clipboard/dist/clipboard.min.js') }}" type="text/javascript"></script> <!-- boton de copiar -->
-			<script src="{{ asset('assets/vendors/general/dropzone/dist/dropzone.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar -->
-			<script src="{{ asset('assets/vendors/custom/js/vendors/dropzone.init.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar -->
-			<script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.polyfills.min.js') }}" type="text/javascript"></script> <!-- tags -->
-			<script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.min.js') }}" type="text/javascript"></script> <!-- tags -->
-			<script src="{{ asset('assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js') }}" type="text/javascript"></script> <!-- notificaciones -->
-			<script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-notify.init.js') }}" type="text/javascript"></script> <!-- notificaciones -->
+			{{-- <script src="{{ asset('assets/vendors/general/dropzone/dist/dropzone.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar --> --}}
+			{{-- <script src="{{ asset('assets/vendors/custom/js/vendors/dropzone.init.js') }}" type="text/javascript"></script> <!-- Arrastrar y soltar --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.polyfills.min.js') }}" type="text/javascript"></script> <!-- tags --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/@yaireo/tagify/dist/tagify.min.js') }}" type="text/javascript"></script> <!-- tags --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js') }}" type="text/javascript"></script> <!-- notificaciones --> --}}
+			{{-- <script src="{{ asset('assets/vendors/custom/js/vendors/bootstrap-notify.init.js') }}" type="text/javascript"></script> <!-- notificaciones --> --}}
 			<script src="{{ asset('assets/vendors/general/jquery-validation/dist/jquery.validate.js') }}" type="text/javascript"></script> <!-- Validador -->
 			<script src="{{ asset('assets/vendors/general/jquery-validation/dist/additional-methods.js') }}" type="text/javascript"></script> <!-- Para el validador -->
 			<script src="{{ asset('assets/vendors/custom/js/vendors/jquery-validation.init.js') }}" type="text/javascript"></script> <!-- Validador -->
-			<script src="{{ asset('assets/vendors/general/toastr/build/toastr.min.js') }}" type="text/javascript"></script> <!-- Notificaciones -->
-			<script src="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.js') }}" type="text/javascript"></script> <!-- select dobles -->
-			<script src="{{ asset('assets/vendors/general/raphael/raphael.js') }}" type="text/javascript"></script> <!-- Graficas -->
-			<script src="{{ asset('assets/vendors/general/morris.js/morris.js') }}" type="text/javascript"></script> <!-- Graficas -->
-			<script src="{{ asset('assets/vendors/general/chart.js/dist/Chart.bundle.js') }}" type="text/javascript"></script> <!-- Graficas -->
+			{{-- <script src="{{ asset('assets/vendors/general/toastr/build/toastr.min.js') }}" type="text/javascript"></script> <!-- Notificaciones --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/dual-listbox/dist/dual-listbox.js') }}" type="text/javascript"></script> <!-- select dobles --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/raphael/raphael.js') }}" type="text/javascript"></script> <!-- Graficas --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/morris.js/morris.js') }}" type="text/javascript"></script> <!-- Graficas --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/chart.js/dist/Chart.bundle.js') }}" type="text/javascript"></script> <!-- Graficas --> --}}
 			<script src="{{ asset('assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js') }}" type="text/javascript"></script> <!-- Para cerrar session o mantenerla -->
 			<script src="{{ asset('assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js') }}" type="text/javascript"></script> <!-- para cuando el usuario no hace ninguna interraccion -->
-			<script src="{{ asset('assets/vendors/general/waypoints/lib/jquery.waypoints.js') }}" type="text/javascript"></script> <!-- agrega mas elementos -->
-			<script src="{{ asset('assets/vendors/general/counterup/jquery.counterup.js') }}" type="text/javascript"></script> <!-- animacion de conteo -->
+			{{-- <script src="{{ asset('assets/vendors/general/waypoints/lib/jquery.waypoints.js') }}" type="text/javascript"></script> <!-- agrega mas elementos --> --}}
+			{{-- <script src="{{ asset('assets/vendors/general/counterup/jquery.counterup.js') }}" type="text/javascript"></script> <!-- animacion de conteo --> --}}
 			<script src="{{ asset('assets/vendors/general/es6-promise-polyfill/promise.min.js') }}" type="text/javascript"></script> <!-- Promesas -->
-			<script src="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script> <!-- alertas -->
-			<script src="{{ asset('assets/vendors/custom/js/vendors/sweetalert2.init.js') }}" type="text/javascript"></script> <!-- alertas -->
+			{{-- <script src="{{ asset('assets/vendors/general/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script> <!-- alertas --> --}}
+			{{-- <script src="{{ asset('assets/vendors/custom/js/vendors/sweetalert2.init.js') }}" type="text/javascript"></script> <!-- alertas --> --}}
 			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/lib.js') }}" type="text/javascript"></script> <!-- funciones genericas  -->
 			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/jquery.input.js') }}" type="text/javascript"></script> <!-- para inputs -->
 			<script src="{{ asset('assets/vendors/general/jquery.repeater/src/repeater.js') }}" type="text/javascript"></script> <!-- Para funciones asincronicas -->
-			<script src="{{ asset('assets/vendors/general/dompurify/dist/purify.js') }}" type="text/javascript"></script> <!-- obtener valores de valor espesifico -->
+			{{-- <script src="{{ asset('assets/vendors/general/dompurify/dist/purify.js') }}" type="text/javascript"></script> <!-- obtener valores de valor espesifico --> --}}
 			<!--end:: Global Optional Vendors -->
 
 			<!--begin::Global Theme Bundle(used by all pages) -->
@@ -441,9 +441,9 @@
 			<!--end::Global Theme Bundle -->
 
 	        <!--begin::Page Vendors(used by this page) -->
-	        <script src="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script> <!-- Calendario -->
-	        <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script> <!-- Maps -->
-	        <script src="{{ asset('assets/vendors/custom/gmaps/gmaps.js') }}" type="text/javascript"></script> <!-- Maps -->
+	        {{-- <script src="{{ asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script> <!-- Calendario --> --}}
+	        {{-- <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script> <!-- Maps --> --}}
+	        {{-- <script src="{{ asset('assets/vendors/custom/gmaps/gmaps.js') }}" type="text/javascript"></script> <!-- Maps --> --}}
 	        <!--end::Page Vendors -->
 	         
 	        <!--begin::Page Scripts(used by this page) -->
