@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\CatEmpleado;
 use App\Models\CatEstatu;
+use App\Traits\TotalTrait;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class CatEmpleadoController extends Controller
 {
+    use TotalTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -61,8 +64,10 @@ class CatEmpleadoController extends Controller
     public function show(CatEmpleado $catEmpleado, $id)
     {
         $empleado = $catEmpleado::find($id);
+        $proyectos = $catEmpleado::proyectos($id);
+        $total = $this->total($proyectos);
 
-        return view('empleado.show',['empleado' => $empleado]);
+        return view('empleado.show',['empleado' => $empleado, 'proyectos' => $proyectos, 'total' => $total]);
     }
 
     /**

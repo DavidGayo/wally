@@ -30,8 +30,8 @@ class EmpleadosProyectoController extends Controller
      */
     public function create()
     {
-        $empleados = CatEmpleado::all()->sortBy('nombre_empleado');
-        $proyectos = Proyecto::all()->sortBy('nombre_proyecto');
+        $empleados = CatEmpleado::where('estatus_id','=','1')->get()->sortBy('nombre_empleo');
+        $proyectos = Proyecto::where('estatus_id','=','1')->get()->sortBy('nombre_proyecto');
         $empleos = CatEmpleo::all()->sortBy('nombre_empleo');
 
         return view('empro.create', ['empleados' => $empleados, 'proyectos' => $proyectos, 'empleos' => $empleos]);
@@ -52,20 +52,15 @@ class EmpleadosProyectoController extends Controller
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
-        if($request->input('precio_hora') > 0  && $request->input('horas') > 0 && $request->input('dias') > 0 ){
-            $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
-        }
-        else{
-            $empPro->total = 0;
-        }
+        $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->save();
 
-        if($empPro->total > 0){
-            $proyecto = Proyecto::find($request->input('proyecto'));
-            $proyecto->gasto = $proyecto->gasto + $empPro->total;
-            $proyecto->update();
-        }
+        
+        $proyecto = Proyecto::find($request->input('proyecto'));
+        $proyecto->gasto = $proyecto->gasto + $empPro->total;
+        $proyecto->update();
+        
 
         $flasher->addSuccess('El mpleado a sido registrado correctamente!!');
 
@@ -119,12 +114,7 @@ class EmpleadosProyectoController extends Controller
         $empPro->precio_hora = $request->input('precio_hora');
         $empPro->horas = $request->input('horas');
         $empPro->dias = $request->input('dias');
-        if($request->input('precio_hora') > 0  && $request->input('horas') > 0 && $request->input('dias') > 0 ){
-            $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
-        }
-        else{
-            $empPro->total = 0;
-        }
+        $empPro->total = $request->input('precio_hora') * $request->input('horas') * $request->input('dias');
         $empPro->usuario_creo_id = auth()->user()->id;
         $empPro->update();
 

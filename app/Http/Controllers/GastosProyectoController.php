@@ -49,20 +49,15 @@ class GastosProyectoController extends Controller
         $gasto->proyecto_id = $request->input('proyecto');
         $gasto->precio_unitario = $request->input('precio_unitario');
         $gasto->cantidad = $request->input('cantidad');
-        if($request->input('precio_unitario') > 0  && $request->input('cantidad') > 0){
-            $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
-        }
-        else{
-            $gasto->total = 0;
-        }
+        $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
         $gasto->usuario_creo_id = auth()->user()->id;
         $gasto->save();
 
-        if($gasto->total > 0){
-            $proyecto = Proyecto::find($request->input('proyecto'));
-            $proyecto->gasto = $proyecto->gasto + $gasto->total;
-            $proyecto->update();
-        }
+
+        $proyecto = Proyecto::find($request->input('proyecto'));
+        $proyecto->gasto = $proyecto->gasto + $gasto->total;
+        $proyecto->update();
+        
 
         $flasher->addSuccess('El gasto a sido registrado correctamente!!');
 
@@ -112,12 +107,7 @@ class GastosProyectoController extends Controller
         $gasto->proyecto_id = $request->input('proyecto');
         $gasto->precio_unitario = $request->input('precio_unitario');
         $gasto->cantidad = $request->input('cantidad');
-        if($request->input('precio_unitario') > 0  && $request->input('cantidad') > 0){
-            $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
-        }
-        else{
-            $gasto->total = 0;
-        }
+        $gasto->total = $request->input('precio_unitario') * $request->input('cantidad');
         $gasto->usuario_creo_id = auth()->user()->id;
         $gasto->update(); 
         

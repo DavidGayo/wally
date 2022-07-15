@@ -99,7 +99,6 @@
 
     @section('js')
         <script type="text/javascript">
-            $('.kt-selectpicker').selectpicker();
             let precio = document.querySelector("#precio_unitario");
             let cantidad = document.querySelector("#cantidad");
             let total = document.querySelector("#total");
@@ -108,9 +107,7 @@
             
             function resultado(){
                 if(precio.value != '' &&  cantidad.value != ''){
-                    if(precio.value > 0 &&  cantidad.value > 0 ){
-                        total.value = (precio.value * cantidad.value).toFixed(2);
-                     }
+                    total.value = (precio.value * cantidad.value).toFixed(2);
                 }
             }
         </script>

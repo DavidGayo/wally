@@ -57,10 +57,9 @@
                     <div class="form-group row">
 						<label for="estatus" class="col-2 col-form-label">Estatus</label>
 						<div class="col-10">
-							<select class="form-control" id="estatus" name="estatus">
-								<option value="{{ $empleado->estatus->id }}">{{ $empleado->estatus->nombre_estatus }}</option>
+							<select class="form-control kt-selectpicker" id="estatus" name="estatus">
 								@foreach ($estatus as $estatu)
-						 			<option value="{{ $estatu->id }}">{{ $estatu->nombre_estatus }}</option>
+						 			<option value="{{ $estatu->id }}" @if( $empleado->estatus->id == $estatu->id) selected @endif>{{ $estatu->nombre_estatus }}</option>
 						 		@endforeach
 							</select>
 						</div>
@@ -80,6 +79,4 @@
                 </div>
             </form>
         </div>
-
-
     @stop

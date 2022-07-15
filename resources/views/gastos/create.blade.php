@@ -106,9 +106,7 @@
             
             function resultado(){
                 if(precio.value != '' &&  cantidad.value != ''){
-                    if(precio.value > 0 &&  cantidad.value > 0 ){
-                        total.value = (precio.value * cantidad.value).toFixed(2);
-                     }
+                    total.value = (precio.value * cantidad.value).toFixed(2);
                 }
             }
         </script>

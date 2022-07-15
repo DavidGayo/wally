@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\CatEstatu;
 use App\Models\EmpleadosProyecto;
-use Flasher\Prime\FlasherInterface;
 use App\Models\GastosProyecto;
 use App\Models\Proyecto;
+use App\Traits\TotalTrait;
+use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
 {
+    use TotalTrait;
+    
     /**
      * Display a listing of the resource.
      *
@@ -137,16 +140,5 @@ class ProyectoController extends Controller
         return redirect()->route('proyecto.index')->with([
             'mensaje_danger' => 'El proyecto a sido eliminado correctamente!!'
         ]);
-    }
-
-    public function total($collection){
-
-        $total = 0;
-        
-        foreach ($collection as $value) {
-            $total += $value->total;
-        }
-
-        return $total;
     }
 }

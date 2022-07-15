@@ -126,9 +126,7 @@
 
             function resultado(){
                 if(precio.value != '' &&  hora.value != ''  && dias.value != ''){
-                    if(precio.value > 0 &&  hora.value > 0  && dias.value > 0){
-                        total.value = (precio.value * hora.value * dias.value).toFixed(2);
-                     }
+                    total.value = (precio.value * hora.value * dias.value).toFixed(2);
                 }
             }
         </script>
