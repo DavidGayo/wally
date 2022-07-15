@@ -57,6 +57,10 @@
                                 	</div>                                        
 
                                 	<div class="kt-widget__item">
+                                        <div class="kt-widget__contact">
+                                            <span class="kt-widget__label">Presupuesto</span>
+                                            <span class="kt-widget__data">{{ $proyecto->presupuesto }}</span>
+                                        </div>
                                 		<div class="kt-widget__contact">
                                         	<span class="kt-widget__label">Gasto total</span>
                                         	<span class="kt-widget__data">{{ $proyecto->gasto }}</span>

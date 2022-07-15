@@ -54,6 +54,12 @@
                             <textarea class="form-control" id="descripcion_proyecto" rows="3" name="descripcion_proyecto"></textarea>
                         </div>
                     </div>
+                     <div class="form-group row">
+                        <label for="presupuesto" class="col-2 col-form-label">Presupuesto</label>
+                        <div class="col-10">
+                            <input class="form-control" type="number" id="presupuesto" name="presupuesto" step=".01">
+                        </div>
+                    </div>
                     <div class="form-group row">
 						<label for="fecha_inicio" class="col-2 col-form-label">Fecha inicio</label>
 						<div class="col-10">

@@ -56,6 +56,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="presupuesto" class="col-2 col-form-label">Presupuesto</label>
+                        <div class="col-10">
+                            <input class="form-control" type="number" id="presupuesto" name="presupuesto" value="{{ $proyecto->presupuesto }}" step=".01">
+                        </div>
+                    </div>
+                    <div class="form-group row">
 						<label for="fecha_inicio" class="col-2 col-form-label">Fecha inicio</label>
 						<div class="col-10">
 							<input class="form-control" type="text" name="fecha_inicio" value="{{ date('d/m/Y', strtotime($proyecto->fecha_inicio))  }}" id="kt_datepicker_1">

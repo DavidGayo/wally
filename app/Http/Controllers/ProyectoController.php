@@ -46,6 +46,7 @@ class ProyectoController extends Controller
         $proyecto = new Proyecto;
         $proyecto->nombre_proyecto = $request->input('nombre_proyecto');
         $proyecto->descripcion_proyecto = $request->input('descripcion_proyecto');
+        $proyecto->presupuesto = $request->input('presupuesto');
         $fecha_aux = explode("/", $request->input('fecha_inicio'));
         $fecha_inicio = $fecha_aux[2]."-".$fecha_aux[1]."-".$fecha_aux[0];
         $fecha_aux = explode("/", $request->input('fecha_fin'));
@@ -106,6 +107,7 @@ class ProyectoController extends Controller
         $proyecto = $proyectos::find($id);
         $proyecto->nombre_proyecto = $request->input('nombre_proyecto');
         $proyecto->descripcion_proyecto = $request->input('descripcion_proyecto');
+        $proyecto->presupuesto = $request->input('presupuesto');
         $fecha_aux = explode("/", $request->input('fecha_inicio'));
         $fecha_inicio = $fecha_aux[2]."-".$fecha_aux[1]."-".$fecha_aux[0];
         $fecha_aux = explode("/", $request->input('fecha_fin'));
