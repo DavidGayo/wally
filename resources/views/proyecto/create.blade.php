@@ -57,13 +57,13 @@
                     <div class="form-group row">
 						<label for="fecha_inicio" class="col-2 col-form-label">Fecha inicio</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="fecha_inicio" id="kt_datepicker_1">
+							<input class="form-control" type="text" name="fecha_inicio" id="kt_datepicker_1" autocomplete="off">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="fecha_fin" class="col-2 col-form-label">Fecha fin</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="fecha_fin" id="kt_datepicker_1">
+							<input class="form-control" type="text" name="fecha_fin" id="kt_datepicker_1" autocomplete="off">
 						</div>
 					</div>
                     <div class="form-group row">
