@@ -42,5 +42,6 @@ Route::middleware([auth::class])->group(function () {
     Route::get('/usuario/{usuario}', [RegisterController::class,'show'])->name('usuario.show');
     Route::get('/usuario/{usuario}/edit', [RegisterController::class,'edit'])->name('usuario.edit');
     Route::put('/usuario/{usuario}', [RegisterController::class,'update'])->name('usuario.update');
+    
 });
 
