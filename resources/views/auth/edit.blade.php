@@ -57,13 +57,13 @@
                     <div class="form-group row">
                         <label for="password" class="col-2 col-form-label">Password</label>
                         <div class="col-10">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="password" class="col-2 col-form-label">Confirmar password</label>
                         <div class="col-10">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                         </div>
                     </div>
                     <div class="form-group row">
