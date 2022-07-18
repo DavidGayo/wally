@@ -1,6 +1,6 @@
- @extends('layouts.layout')
+  @extends('layouts.layout')
 
-    @section('header')
+     @section('header')
         <!-- begin:: Subheader -->
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
@@ -18,7 +18,7 @@
                         </a>
                         <span class="kt-subheader__breadcrumbs-separator"></span>
                         <span class="kt-subheader__breadcrumbs-link">
-                            Crear
+                            Editar
                         </span>
                     </div>
                 </div>        
@@ -30,7 +30,7 @@
     @section('content')
         
         <div class="kt-portlet">
-            <div class="kt-portlet__head">
+            <<div class="kt-portlet__head">
                 <div class="kt-portlet__head-label">
                     <h3 class="kt-portlet__head-title">
                         Usuario
@@ -38,19 +38,20 @@
                 </div>
             </div>
 
-            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('register') }}">
-                @csrf
+            <form class="kt-form kt-form--label-right" method="POST" action="{{ route('usuario.update', ['usuario' => $usuario->id ] ) }}">
+ 				@method('PUT')
+				@csrf
                 <div class="kt-portlet__body">
                     <div class="form-group row">
                         <label for="name" class="col-2 col-form-label">Nombre</label>
                         <div class="col-10">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $usuario->name }}" required autocomplete="name" autofocus>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-2 col-form-label">Correo</label>
                         <div class="col-10">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $usuario->email }}" required autocomplete="email">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -69,8 +70,8 @@
                         <label for="rol" class="col-2 col-form-label">Rol</label>
                         <div class="col-10">
                             <select class="form-control" id="rol" name="rol">
-                                <option value="admin">Administrador</option>
-                                <option value="invitado">Invitado</option>
+                                <option value="admin" @if($usuario->rol == 'admin') selected @endif>Administrador</option>
+                                <option value="invitado" @if($usuario->rol == 'invitado') selected @endif>Invitado</option>
                             </select>
                         </div>
                     </div>         
@@ -81,8 +82,8 @@
                             <div class="col-2">
                             </div>
                             <div class="col-10">
-                                <button type="submit" class="btn btn-success">Guardar</button>
-                                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <a href="{{ route('usuario.index') }}" role="button" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </div>
                     </div>

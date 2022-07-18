@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Flasher\Prime\FlasherInterface;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -38,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -71,5 +73,42 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'rol' => $data['rol'],
         ]);
+    }
+
+    public function index()
+    {
+        $usuarios = User::all();
+
+        return view('auth.index',['usuarios' => $usuarios]);
+    }
+
+    public function show(User $user, $id)
+    {
+       $usuario = $user::find($id);
+
+        return view('auth.show',['usuario' => $usuario]);
+    }
+
+    public function edit(User $user, $id)
+    {
+       $usuario = $user::find($id);
+
+        return view('auth.edit',['usuario' => $usuario]);
+    }
+
+    public function update(Request $request, User $user, FlasherInterface $flasher, $id){
+
+        $usuario = $user::find($id);
+        $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
+        if($request->input('password')){
+            $usuario->password = Hash::make($request->input('password'));
+        }
+        $usuario->rol = $request->input('rol');
+        $usuario->update();
+
+        $flasher->addInfo('El usuario a sido actualizado correctamente!!');
+
+        return redirect()->route('usuario.index');
     }
 }
